@@ -1,0 +1,9 @@
+.Footer {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--first-color);
+}
+.Footer span {
+  padding: 10px 15px;
+  border-radius: 18px;
+}
