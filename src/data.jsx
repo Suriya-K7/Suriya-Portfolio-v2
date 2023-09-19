@@ -133,19 +133,19 @@ export const stats = [
 export const resume = [
   {
     id: 1,
-    category: "experience",
-    icon: <FaBriefcase />,
+    category: "education",
+    icon: <FaGraduationCap />,
     year: "Mar 2023 - Present",
-    title: "Full Stack Developer <span> Guvi </span>",
+    title: "Full Stack Developer Program <span> Guvi </span>",
     desc: "Learning Full Stack Developer (MERN).",
   },
   {
     id: 2,
     category: "experience",
     icon: <FaBriefcase />,
-    year: "Dec 2022 - Feb 2023",
-    title: "Career Break",
-    desc: "Trying to change my Career & learning Programming languages (self Learning).",
+    year: "Jan 2023 - Present",
+    title: "Career Change",
+    desc: "I'm shifting my career to IT and actively studying MERN Stack Development through Guvi's training program while also engaging in self-learning.",
   },
   {
     id: 3,
