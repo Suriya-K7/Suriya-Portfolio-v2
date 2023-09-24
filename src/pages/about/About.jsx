@@ -27,8 +27,8 @@ const About = () => {
               <Info />
             </ul>
             <a
-              href={CV}
-              download=''
+              href='https://drive.google.com/file/d/1oXtY3zzPg6eI8FjGeddZSua1ZG8KgOMR/view'
+              target='_blank'
               className='button'
             >
               Download CV{" "}
