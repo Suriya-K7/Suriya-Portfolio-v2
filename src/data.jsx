@@ -177,7 +177,7 @@ export const resume = [
     icon: <FaGraduationCap />,
     year: "Apr 2023 - Prresent",
     title:
-      "Bacholar in Computer Application <span> Kalasalingam University </span>",
+      "Bachelor in Computer Application <span> Kalasalingam University </span>",
     desc: "Currently Pursuing",
   },
 
@@ -222,14 +222,9 @@ export const skills = [
     percentage: "90",
   },
   {
-    id: 5,
-    title: "Bootstrap",
-    percentage: "80",
-  },
-  {
-    id: 6,
-    title: "TailWind",
-    percentage: "75",
+    id: 14,
+    title: "Redux & Toolkit",
+    percentage: "85",
   },
   {
     id: 7,
@@ -246,7 +241,26 @@ export const skills = [
     title: "MongoDB",
     percentage: "85",
   },
-
+  {
+    id: 10,
+    title: "MySql",
+    percentage: "70",
+  },
+  {
+    id: 12,
+    title: "SASS",
+    percentage: "80",
+  },
+  {
+    id: 5,
+    title: "Bootstrap",
+    percentage: "80",
+  },
+  {
+    id: 6,
+    title: "TailWind",
+    percentage: "75",
+  },
   {
     id: 11,
     title: "Git",
@@ -258,24 +272,9 @@ export const skills = [
     percentage: "80",
   },
   {
-    id: 10,
-    title: "MySql",
-    percentage: "70",
-  },
-  {
-    id: 14,
-    title: "Redux",
-    percentage: "60",
-  },
-  {
     id: 13,
     title: "AWS",
     percentage: "50",
-  },
-  {
-    id: 12,
-    title: "SASS",
-    percentage: "60",
   },
 ];
 
