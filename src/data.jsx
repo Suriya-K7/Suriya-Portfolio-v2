@@ -132,10 +132,19 @@ export const stats = [
 
 export const resume = [
   {
+    id: 6,
+    category: "education",
+    icon: <FaGraduationCap />,
+    year: "Apr 2023 - Present",
+    title:
+      "Bachelor in Computer Application <span> Kalasalingam University </span>",
+    desc: "Currently Pursuing",
+  },
+  {
     id: 1,
     category: "education",
     icon: <FaGraduationCap />,
-    year: "Mar 2023 - Present",
+    year: "Apr 2023 - Sep 2023",
     title: "Full Stack Developer Program <span> Guvi </span>",
     desc: "Learning Full Stack Developer (MERN).",
   },
@@ -178,15 +187,6 @@ export const resume = [
     year: "Jun 2012 - Oct 2013",
     title: "Technician <span> EFS, Chennai </span>",
     desc: "Worked as a Technician.",
-  },
-  {
-    id: 6,
-    category: "education",
-    icon: <FaGraduationCap />,
-    year: "Apr 2023 - Prresent",
-    title:
-      "Bachelor in Computer Application <span> Kalasalingam University </span>",
-    desc: "Currently Pursuing",
   },
   {
     id: 7,

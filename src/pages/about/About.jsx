@@ -27,7 +27,7 @@ const About = () => {
               <Info />
             </ul>
             <a
-              href='https://drive.google.com/file/d/1oXtY3zzPg6eI8FjGeddZSua1ZG8KgOMR/view'
+              href='https://drive.google.com/file/d/12bElrPVKGWuQeXVm6Cgtvdns6-XSMdqC/view?usp=sharing'
               target='_blank'
               className='button'
             >
