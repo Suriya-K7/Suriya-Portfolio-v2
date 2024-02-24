@@ -175,3 +175,6 @@ img {
   display: grid;
   place-items: center;
 }
+.cursorPointer{
+  cursor: pointer;
+}

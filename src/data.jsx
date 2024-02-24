@@ -125,7 +125,7 @@ export const stats = [
   },
   {
     id: 4,
-    no: "2+",
+    no: "3+",
     title: " Awards <br /> Won",
   },
 ];
@@ -140,10 +140,18 @@ export const resume = [
     desc: "Learning Full Stack Developer (MERN).",
   },
   {
+    id: 9,
+    category: "experience",
+    icon: <FaBriefcase />,
+    year: "Oct 2023 - Present",
+    title: "Junior Full Stack Developer (MERN)",
+    desc: "Website Learners, Chennai",
+  },
+  {
     id: 2,
     category: "experience",
     icon: <FaBriefcase />,
-    year: "Jan 2023 - Present",
+    year: "Jan 2023 - Sep 2023",
     title: "Career Change",
     desc: "I'm shifting my career to IT and actively studying MERN Stack Development through Guvi's training program while also engaging in self-learning.",
   },
@@ -180,7 +188,6 @@ export const resume = [
       "Bachelor in Computer Application <span> Kalasalingam University </span>",
     desc: "Currently Pursuing",
   },
-
   {
     id: 7,
     category: "education",
@@ -189,7 +196,6 @@ export const resume = [
     title: "Diploma in Electrical & Electronics <span> AVC College </span>",
     desc: "First Class with Distinction & 89% ",
   },
-
   {
     id: 8,
     category: "education",
@@ -203,26 +209,21 @@ export const resume = [
 export const skills = [
   {
     id: 1,
-    title: "HTML",
+    title: "HTML & CSS",
     percentage: "90",
   },
   {
     id: 2,
-    title: "CSS",
-    percentage: "90",
-  },
-  {
-    id: 3,
     title: "JavaScript",
     percentage: "90",
   },
   {
-    id: 4,
+    id: 3,
     title: "React",
     percentage: "90",
   },
   {
-    id: 14,
+    id: 4,
     title: "Redux & Toolkit",
     percentage: "85",
   },
@@ -242,9 +243,14 @@ export const skills = [
     percentage: "85",
   },
   {
-    id: 10,
-    title: "MySql",
-    percentage: "70",
+    id: 11,
+    title: "Git",
+    percentage: "85",
+  },
+  {
+    id: 15,
+    title: "PostMan",
+    percentage: "85",
   },
   {
     id: 12,
@@ -254,22 +260,22 @@ export const skills = [
   {
     id: 5,
     title: "Bootstrap",
-    percentage: "80",
+    percentage: "85",
   },
   {
     id: 6,
     title: "TailWind",
-    percentage: "75",
-  },
-  {
-    id: 11,
-    title: "Git",
     percentage: "85",
   },
   {
-    id: 15,
-    title: "PostMan",
-    percentage: "80",
+    id: 14,
+    title: "MUI",
+    percentage: "85",
+  },
+  {
+    id: 10,
+    title: "MySql",
+    percentage: "70",
   },
   {
     id: 13,

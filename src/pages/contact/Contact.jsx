@@ -143,7 +143,7 @@ const Contact = () => {
               </div>
               <button
                 type='submit'
-                className='button'
+                className='button cursorPointer'
               >
                 Send Message
                 <span className='button__icon contact__button-icon'>
