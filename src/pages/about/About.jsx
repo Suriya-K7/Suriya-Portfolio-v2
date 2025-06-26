@@ -12,89 +12,63 @@ import { motion, useScroll } from "framer-motion";
 
 const About = () => {
   return (
-    <main
-      className='section container'
-      id='about'
-    >
-      <section className='about'>
-        <h2 className='section__title'>
+    <main className="section container" id="about">
+      <section className="about">
+        <h2 className="section__title">
           About <span>Me</span>
         </h2>
-        <div className='about__container grid'>
-          <div className='about__info'>
-            <h3 className='section__subtitle'>Personal Info</h3>
-            <ul className='info__list grid'>
+        <div className="about__container grid">
+          <div className="about__info">
+            <h3 className="section__subtitle">Personal Info</h3>
+            <ul className="info__list grid">
               <Info />
             </ul>
             <a
-              href='https://drive.google.com/file/d/11Ad7C8iMyhphtg2clO5Rw0VsfOhe61TY/view?usp=sharing'
-              target='_blank'
-              className='button'
+              href="https://drive.google.com/file/d/1LCVaNbAq6iYWOEAOz4Z1CI_puwKbq1J3/view?usp=sharing"
+              target="_blank"
+              className="button"
             >
               Download CV{" "}
-              <span className='button__icon'>
+              <span className="button__icon">
                 <FaDownload />
               </span>
             </a>
           </div>
-          <Fade
-            direction='up'
-            duration={500}
-            triggerOnce='true'
-          >
-            <Zoom
-              duration={500}
-              triggerOnce='true'
-            >
-              <div className='stats grid'>
+          <Fade direction="up" duration={500} triggerOnce="true">
+            <Zoom duration={500} triggerOnce="true">
+              <div className="stats grid">
                 <Stats />
               </div>
             </Zoom>
           </Fade>
         </div>
       </section>
-      <div className='separator'></div>
-      <div
-        className='skills section'
-        id='skills'
-      >
-        <h2 className='section__title'>
+      <div className="separator"></div>
+      <div className="skills section" id="skills">
+        <h2 className="section__title">
           My <span>Skills</span>
         </h2>
-        <div className='skills__container grid'>
+        <div className="skills__container grid">
           <Skills />
         </div>
       </div>
-      <div className='separator'></div>
-      <section
-        className='resume section'
-        id='journey'
-      >
-        <h2 className='section__title'>
+      <div className="separator"></div>
+      <section className="resume section" id="journey">
+        <h2 className="section__title">
           My <span>Journey</span>
         </h2>
-        <div className='resume__container grid'>
-          <div className='resume__data'>
+        <div className="resume__container grid">
+          <div className="resume__data">
             {resume.map((val) => {
               if (val.category === "experience") {
-                return (
-                  <ResumeItem
-                    key={val.id}
-                    {...val}
-                  />
-                );
+                return <ResumeItem key={val.id} {...val} />;
               }
             })}
           </div>
-          <div className='resume__data'>
+          <div className="resume__data">
             {resume.map((val) => {
               if (val.category === "education") {
-                return (
-                  <ResumeItem
-                    key={val.id}
-                    {...val}
-                  />
-                );
+                return <ResumeItem key={val.id} {...val} />;
               }
             })}
           </div>
