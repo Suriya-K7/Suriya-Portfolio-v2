@@ -21,7 +21,7 @@ const Home = () => {
     <section className="home section grid" id="home">
       <motion.div className="progressBar" style={{ scaleX: scrollYProgress }} />
       <Fade className="zIndex">
-        <img src={Profile} alt="" className="home__img" />
+        <img src={Profile} alt="" className="home__img" loading="eager" />
       </Fade>
       <div className="home__content">
         <div className="home__data">
