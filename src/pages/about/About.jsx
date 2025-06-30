@@ -24,7 +24,7 @@ const About = () => {
               <Info />
             </ul>
             <a
-              href="https://drive.google.com/file/d/1vtlaU_hkGdlUvhuTXJ6tPdvxfgs8scl3/view?usp=sharing"
+              href="https://drive.google.com/file/d/1RbkzozwdsiAFiN6AWIyfhKuINtBAFA53/view?usp=sharing"
               target="_blank"
               className="button"
             >

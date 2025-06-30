@@ -15,42 +15,43 @@ import Work1 from "./assets/project-1.png";
 import Work2 from "./assets/project-2.png";
 import Work3 from "./assets/project-3.png";
 import Work4 from "./assets/project-4.png";
+import { getAge } from "./utils";
 
 export const links = [
   {
     id: 1,
     name: "Home",
-    icon: <FaHome className='nav__icon' />,
+    icon: <FaHome className="nav__icon" />,
     path: "#home",
   },
   {
     id: 2,
     name: "About",
-    icon: <FaUser className='nav__icon' />,
+    icon: <FaUser className="nav__icon" />,
     path: "#about",
   },
   {
     id: 5,
     name: "Skills",
-    icon: <FaCogs className='nav__icon' />,
+    icon: <FaCogs className="nav__icon" />,
     path: "#skills",
   },
   {
     id: 6,
     name: "Journey",
-    icon: <MdWorkHistory className='nav__icon' />,
+    icon: <MdWorkHistory className="nav__icon" />,
     path: "#journey",
   },
   {
     id: 3,
     name: "Portfolio",
-    icon: <FaFolderOpen className='nav__icon' />,
+    icon: <FaFolderOpen className="nav__icon" />,
     path: "#portfolio",
   },
   {
     id: 4,
     name: "Contact",
-    icon: <FaEnvelopeOpen className='nav__icon' />,
+    icon: <FaEnvelopeOpen className="nav__icon" />,
     path: "#contact",
   },
 ];
@@ -71,7 +72,7 @@ export const personalInfo = [
   {
     id: 3,
     title: "Age : ",
-    description: "29 Years",
+    description: getAge(),
   },
 
   {
@@ -120,11 +121,16 @@ export const personalInfo = [
 export const stats = [
   {
     id: 1,
-    no: "8+",
-    title: "Years of <br /> Experience",
+    no: "2.5+",
+    title: "Years of Experience  <br /> In MERN Stack",
   },
   {
-    id: 4,
+    id: 2,
+    no: "6+",
+    title: "Years of Experience  <br /> In Non-IT Field",
+  },
+  {
+    id: 3,
     no: "3+",
     title: " Awards <br /> Won",
   },
@@ -144,17 +150,15 @@ export const resume = [
     category: "education",
     icon: <FaGraduationCap />,
     year: "Jun 2017 - May 2020",
-    title:
-      "Bachelor in Computer Application",
+    title: "Bachelor in Computer Application",
     desc: "Arunachal University of Studies",
   },
-
   {
     id: 9,
     category: "experience",
     icon: <FaBriefcase />,
     year: "Oct 2023 - Present",
-    title: "Junior Full Stack Developer (MERN)",
+    title: "Full Stack Developer (MERN)",
     desc: "Website Learners, Chennai",
   },
   {
@@ -162,8 +166,9 @@ export const resume = [
     category: "experience",
     icon: <FaBriefcase />,
     year: "Jan 2023 - Sep 2023",
-    title: "Career Change",
-    desc: "I'm shifting my career to IT and actively studying MERN Stack Development through Guvi's training program while also engaging in self-learning.",
+    title: "MERN Stack Trainee <span> Guvi, Chennai </span>",
+    desc: `Transitioning into IT with a focus on MERN Stack development, undergoing structured training through Guvi's
+program while actively pursuing self-learning and hands-on practice to strengthen my skills.`,
   },
   {
     id: 3,
@@ -171,24 +176,10 @@ export const resume = [
     icon: <FaBriefcase />,
     year: "Jan 2017 - Dec 2022",
     title: "Technical Admin <span> Imdaad.LLC, U.A.E </span>",
-    desc: "I handle system updates in Maximo and SAP, as well as generate reports for clients using MS Office (Excel & Word). Additionally, I've won 'Employee of the Year' twice from the client.",
+    desc: `I managed system updates in Maximo and SAP, and generated client-facing reports using MS Office tools.
+Recognized for excellence with 'Employee of the Year' award from the client on two occasions.`,
   },
-  {
-    id: 4,
-    category: "experience",
-    icon: <FaBriefcase />,
-    year: "Nov 2015 - June 2016",
-    title: "Technician <span> AL Ahelia Switchgears, Kuwait </span>",
-    desc: "Worked as a Technician.",
-  },
-  {
-    id: 5,
-    category: "experience",
-    icon: <FaBriefcase />,
-    year: "Jun 2012 - Oct 2013",
-    title: "Technician <span> EFS, Chennai </span>",
-    desc: "Worked as a Technician.",
-  },
+
   {
     id: 7,
     category: "education",
@@ -210,7 +201,7 @@ export const resume = [
 export const skills = [
   {
     id: 1,
-    title: "HTML & CSS",
+    title: "React JS",
     percentage: "90",
   },
   {
@@ -220,67 +211,83 @@ export const skills = [
   },
   {
     id: 3,
-    title: "React",
-    percentage: "90",
+    title: "TypeScript",
+    percentage: "80",
   },
   {
     id: 4,
-    title: "Redux & Toolkit",
-    percentage: "85",
+    title: "NextJs",
+    percentage: "70",
   },
   {
-    id: 7,
+    id: 5,
     title: "NodeJs",
     percentage: "85",
   },
   {
-    id: 8,
+    id: 6,
     title: "ExpressJs",
     percentage: "85",
   },
   {
-    id: 9,
+    id: 7,
     title: "MongoDB",
     percentage: "85",
   },
   {
-    id: 11,
-    title: "Git",
-    percentage: "85",
-  },
-  {
-    id: 15,
-    title: "PostMan",
-    percentage: "85",
-  },
-  {
-    id: 12,
-    title: "SASS",
-    percentage: "80",
-  },
-  {
-    id: 5,
-    title: "Bootstrap",
-    percentage: "85",
-  },
-  {
-    id: 6,
-    title: "TailWind",
-    percentage: "85",
-  },
-  {
-    id: 14,
-    title: "MUI",
-    percentage: "85",
-  },
-  {
-    id: 10,
+    id: 8,
     title: "MySql",
     percentage: "70",
   },
   {
+    id: 9,
+    title: "Redux & Toolkit",
+    percentage: "85",
+  },
+  {
+    id: 10,
+    title: "HTML & CSS",
+    percentage: "90",
+  },
+
+  {
+    id: 11,
+    title: "TailWind",
+    percentage: "85",
+  },
+  {
+    id: 12,
+    title: "Shadcn",
+    percentage: "80",
+  },
+  {
     id: 13,
+    title: "MUI",
+    percentage: "85",
+  },
+  {
+    id: 14,
+    title: "SASS",
+    percentage: "80",
+  },
+  {
+    id: 15,
+    title: "Git",
+    percentage: "85",
+  },
+  {
+    id: 16,
+    title: "PostMan",
+    percentage: "85",
+  },
+  {
+    id: 17,
     title: "AWS",
+    percentage: "50",
+  },
+  {
+    id: 18,
+    title: "NestJs",
     percentage: "50",
   },
 ];
