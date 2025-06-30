@@ -38,14 +38,15 @@ const Home = () => {
             </p>
           </h1>
           <p className="home__description">
-            A highly motivated and adaptable professional seeking to transition
-            into a new career in Software profession. I am eager to leverage my
-            transferable skills and passion for IT industry to make a positive
-            impact in a new role. I am confident in my ability to excel in a new
-            environment and contribute to the success of my team and
-            organization. I am committed to continuous learning and development,
-            and excited to embrace new challenges and opportunities in my career
-            transition.
+            MERN Stack Developer with 2.5 years of hands-on experience in
+            designing and developing scalable, high- performance web
+            applications. Proficient in React.js, Node.js, Next.js, and MongoDB,
+            with strong expertise in TypeScript, Tailwind CSS, and ShadCN UI.
+            Adept at creating clean, responsive user interfaces and optimizing
+            application performance. Skilled in building RESTful APIs,
+            implementing CI/CD pipelines, and collaborating in Agile,
+            cross-functional team environments. Committed to writing
+            maintainable code and delivering efficient software solutions.
           </p>
           <a href="#about" className="button">
             More About Me{" "}
