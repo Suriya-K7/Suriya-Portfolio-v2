@@ -38,7 +38,7 @@ const Home = () => {
             </p>
           </h1>
           <p className="home__description">
-            MERN Stack Developer with 2.5 years of hands-on experience in
+            MERN Stack Developer with 2.7 years of hands-on experience in
             designing and developing scalable, high- performance web
             applications. Proficient in React.js, Node.js, Next.js, and MongoDB,
             with strong expertise in TypeScript, Tailwind CSS, and ShadCN UI.

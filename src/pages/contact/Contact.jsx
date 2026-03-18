@@ -46,54 +46,51 @@ const Contact = () => {
       (error) => {
         toast.error("Server error Please try again later!");
         console.log(error);
-      }
+      },
     );
   };
 
   return (
-    <section
-      className='contact section'
-      id='contact'
-    >
-      <h2 className='section__title'>
+    <section className="contact section" id="contact">
+      <h2 className="section__title">
         Get In <span>Touch</span>
       </h2>
-      <div className='contact__container container grid'>
-        <div className='contact__data'>
-          <h3 className='contact__title'>Don't be Shy !</h3>
-          <p className='contact__description'>
+      <div className="contact__container container grid">
+        <div className="contact__data">
+          <h3 className="contact__title">Don't be Shy !</h3>
+          <p className="contact__description">
             Feel free to get in touch with me. I am always open to discussing
             new projects, creative ideas or oppurtunities to be part of your
             vision.
           </p>
-          <div className='contact__info'>
-            <div className='info__item'>
-              <FaEnvelope className='info__icon' />
+          <div className="contact__info">
+            <div className="info__item">
+              <FaEnvelope className="info__icon" />
               <div>
-                <span className='info__title'>Mail Me</span>
-                <h4 className='info__desc'>usraising@gmail.com</h4>
+                <span className="info__title">Mail Me</span>
+                <h4 className="info__desc">suriya.fsd@gmail.com</h4>
               </div>
             </div>
-            <div className='info__item'>
-              <FaPhoneSquareAlt className='info__icon' />
+            <div className="info__item">
+              <FaPhoneSquareAlt className="info__icon" />
               <div>
-                <span className='info__title'>Call Me</span>
-                <h4 className='info__desc'>+91-7639718893</h4>
+                <span className="info__title">Call Me</span>
+                <h4 className="info__desc">+91-7639718893</h4>
               </div>
             </div>
           </div>
-          <div className='contact__socials'>
+          <div className="contact__socials">
             <a
-              href='https://linkedin.com/in/suriya-kesavamurthy-50616825a'
-              className='contact__social-link'
-              target='_blank'
+              href="https://linkedin.com/in/suriya-kesavamurthy-50616825a"
+              className="contact__social-link"
+              target="_blank"
             >
               <FaLinkedin />
             </a>
             <a
-              href='https://github.com/suriya-k7'
-              className='contact__social-link'
-              target='_blank'
+              href="https://github.com/suriya-k7"
+              className="contact__social-link"
+              target="_blank"
             >
               <FaGithub />
             </a>
@@ -113,40 +110,34 @@ const Contact = () => {
           }}
         >
           {(formik) => (
-            <Form
-              ref={form}
-              className='contact__form'
-            >
-              <div className='form__input-group'>
+            <Form ref={form} className="contact__form">
+              <div className="form__input-group">
                 <TextField
-                  name='from_name'
-                  placeholder='Your Name'
-                  type='text'
+                  name="from_name"
+                  placeholder="Your Name"
+                  type="text"
                 />
                 <TextField
-                  name='from_email'
-                  placeholder='Your Email'
-                  type='email'
+                  name="from_email"
+                  placeholder="Your Email"
+                  type="email"
                 />
                 <TextField
-                  name='from_subject'
-                  placeholder='Your Subject'
-                  type='text'
+                  name="from_subject"
+                  placeholder="Your Subject"
+                  type="text"
                 />
               </div>
-              <div className='form__input-div'>
+              <div className="form__input-div">
                 <TextField
-                  name='message'
-                  placeholder='Your Message'
-                  type='textarea'
+                  name="message"
+                  placeholder="Your Message"
+                  type="textarea"
                 />
               </div>
-              <button
-                type='submit'
-                className='button cursorPointer'
-              >
+              <button type="submit" className="button cursorPointer">
                 Send Message
-                <span className='button__icon contact__button-icon'>
+                <span className="button__icon contact__button-icon">
                   <FiSend />
                 </span>
               </button>
@@ -155,7 +146,7 @@ const Contact = () => {
         </Formik>
       </div>
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={1000}
         transition={Flip}
         draggable={false}
@@ -165,7 +156,7 @@ const Contact = () => {
         rtl={false}
         pauseOnFocusLoss
         pauseOnHover
-        theme='colored'
+        theme="colored"
       />
     </section>
   );

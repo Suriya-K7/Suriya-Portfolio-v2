@@ -102,7 +102,7 @@ export const personalInfo = [
   {
     id: 8,
     title: "Email : ",
-    description: "usraising@mail.com",
+    description: "suriya.fsd@mail.com",
   },
 
   {
@@ -121,7 +121,7 @@ export const personalInfo = [
 export const stats = [
   {
     id: 1,
-    no: "2.5+",
+    no: "2.7+",
     title: "Years of Experience  <br /> In MERN Stack",
   },
   {
@@ -154,10 +154,18 @@ export const resume = [
     desc: "Arunachal University of Studies",
   },
   {
+    id: 10,
+    category: "experience",
+    icon: <FaBriefcase />,
+    year: "Oct 2025 - Present",
+    title: "Frontend Engineer",
+    desc: "Stratforge Pvt. Ltd., Chennai",
+  },
+  {
     id: 9,
     category: "experience",
     icon: <FaBriefcase />,
-    year: "Oct 2023 - Present",
+    year: "Oct 2023 - Sep 2025",
     title: "Full Stack Developer (MERN)",
     desc: "Website Learners, Chennai",
   },
@@ -212,12 +220,12 @@ export const skills = [
   {
     id: 3,
     title: "TypeScript",
-    percentage: "80",
+    percentage: "90",
   },
   {
     id: 4,
     title: "NextJs",
-    percentage: "70",
+    percentage: "80",
   },
   {
     id: 5,
@@ -273,12 +281,12 @@ export const skills = [
   {
     id: 15,
     title: "Git",
-    percentage: "85",
+    percentage: "90",
   },
   {
     id: 16,
-    title: "PostMan",
-    percentage: "85",
+    title: "Tanstack",
+    percentage: "80",
   },
   {
     id: 17,
