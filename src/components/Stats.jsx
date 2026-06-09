@@ -1,24 +1,31 @@
 import React from "react";
 import { stats } from "@/data";
 import parse from "html-react-parser";
-import { Fade } from "react-awesome-reveal";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Stats = () => {
   return (
     <>
-      {stats.map(({ no, title }, index) => (
+      {stats.map(({ id, no, title }) => (
         <Card
-          key={index}
-          className="border-border shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+          key={id}
+          className="stat-card border-border/60 shadow-sm transition-all duration-300
+            hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1
+            hover:border-primary/30 cursor-default"
         >
-          <CardContent className="p-6">
-            <Fade cascade>
-              <h3 className="text-3xl font-bold text-primary">{no}</h3>
-              <p className="relative mt-2 pl-10 text-sm text-muted-foreground before:absolute before:left-0 before:top-1/2 before:h-px before:w-7 before:bg-muted-foreground">
-                {parse(title)}
+          <CardContent className="p-5 sm:p-6 flex items-center gap-5">
+            {/* Number */}
+            <div className="shrink-0">
+              <span className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">
+                {no}
+              </span>
+            </div>
+            {/* Label */}
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-foreground/80 leading-snug">
+                {parse(title.replace("<br />", " "))}
               </p>
-            </Fade>
+            </div>
           </CardContent>
         </Card>
       ))}

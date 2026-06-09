@@ -10,7 +10,12 @@ const Theme = () => {
   });
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    const next = theme === "dark" ? "light" : "dark";
+    if (!document.startViewTransition) {
+      setTheme(next);
+      return;
+    }
+    document.startViewTransition(() => setTheme(next));
   };
 
   useEffect(() => {

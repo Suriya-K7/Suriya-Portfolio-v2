@@ -1,22 +1,63 @@
 import React from "react";
 import parse from "html-react-parser";
-import { Fade } from "react-awesome-reveal";
 
+/**
+ * ResumeItem — Production-grade timeline entry.
+ *
+ * Structure:
+ *   [icon dot] ── vertical line ──
+ *       [year badge]
+ *       [title]
+ *       [description]
+ *
+ * Animation: controlled externally by GSAP targeting `.journey-item`
+ */
 const ResumeItem = ({ icon, year, title, desc }) => {
   return (
-    <div className="relative pl-14 mb-10 last:mb-0 before:absolute before:inset-y-0 before:left-[19px] before:w-px before:border-l before:border-border">
-      <Fade duration={500} cascade triggerOnce>
-        <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground [&>svg]:h-4 [&>svg]:w-4">
+    <div className="journey-item group relative flex gap-5 pb-10 last:pb-0">
+
+      {/* ── Left: icon + vertical timeline line ── */}
+      <div className="relative flex flex-col items-center shrink-0">
+        {/* Icon circle */}
+        <div
+          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full
+            bg-primary text-primary-foreground shadow-sm shadow-primary/30
+            transition-all duration-300
+            group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/40
+            [&>svg]:h-[18px] [&>svg]:w-[18px]"
+        >
           {icon}
         </div>
-        <div className="inline-block rounded-full bg-muted px-3 py-1 text-xs font-semibold">
+
+        {/* Vertical line — extends from icon down to bottom of item */}
+        <div className="mt-2 w-px flex-1 bg-gradient-to-b from-border to-transparent last:hidden" />
+      </div>
+
+      {/* ── Right: content ── */}
+      <div className="flex-1 min-w-0 pt-1 pb-2">
+        {/* Year badge */}
+        <span
+          className="inline-flex items-center rounded-full bg-primary/8 border border-primary/20
+            px-3 py-0.5 text-[11px] font-semibold text-primary tracking-wide mb-3"
+        >
           {year}
-        </div>
-        <h3 className="mt-3 text-lg font-medium [&>span]:ml-2 [&>span]:text-sm [&>span]:font-normal [&>span]:text-muted-foreground">
+        </span>
+
+        {/* Title */}
+        <h3
+          className="text-[15px] font-semibold text-foreground leading-snug mb-1
+            [&>span]:ml-2 [&>span]:text-[13px] [&>span]:font-normal [&>span]:text-muted-foreground"
+        >
           {parse(title)}
         </h3>
-        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-      </Fade>
+
+        {/* Description */}
+        {desc && (
+          <p className="text-[13px] leading-relaxed text-muted-foreground">
+            {desc}
+          </p>
+        )}
+      </div>
     </div>
   );
 };

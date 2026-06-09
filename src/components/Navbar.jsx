@@ -1,53 +1,201 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { links } from "@/data";
+import { X, Menu } from "lucide-react";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = showMenu ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [showMenu]);
 
   return (
-    <nav className="fixed right-0 top-0 z-[1000] flex items-center lg:inset-y-0 lg:right-8">
-      {/* Desktop nav - right side pill buttons */}
-      <div
+    <>
+      {/* ── Desktop: right-side vertical pill nav ── */}
+      <nav
+        aria-label="Site navigation"
+        className="fixed inset-y-0 right-8 z-[1000] hidden lg:flex items-center"
+      >
+        <ul className="flex flex-col gap-3">
+          {links.map(({ id, name, icon, path }) => {
+            const isActive = activeSection === path.replace("#", "");
+            return (
+              <li key={id}>
+                <a
+                  href={path}
+                  aria-label={name}
+                  className={`
+                    group relative flex h-12 w-12 items-center justify-center rounded-full
+                    border transition-all duration-300
+                    shadow-sm hover:shadow-primary/30 hover:shadow-md
+                    ${isActive
+                      ? "bg-primary border-primary text-primary-foreground shadow-primary/40 shadow-md"
+                      : "bg-card/80 border-border/60 text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground backdrop-blur-sm"
+                    }
+                  `}
+                >
+                  {/* Icon */}
+                  <span className="[&>svg]:h-[18px] [&>svg]:w-[18px]">{icon}</span>
+
+                  {/* Tooltip label – slides in from right */}
+                  <span
+                    className="
+                      pointer-events-none absolute right-[calc(100%+12px)] top-1/2 -translate-y-1/2
+                      whitespace-nowrap rounded-lg bg-foreground px-3 py-1.5
+                      text-xs font-semibold text-background
+                      opacity-0 scale-95 origin-right
+                      transition-all duration-200
+                      group-hover:opacity-100 group-hover:scale-100
+                      shadow-lg
+                    "
+                  >
+                    {name}
+                    {/* Arrow */}
+                    <span className="absolute right-[-5px] top-1/2 -translate-y-1/2 border-4 border-transparent border-l-foreground" />
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
+      {/* ── Mobile: hamburger button ── */}
+      <button
         className={`
-          ${showMenu ? "left-0" : "-left-full"}
-          fixed inset-y-0 w-full bg-card/95 backdrop-blur-md p-16 transition-all duration-300 z-50
-          lg:relative lg:left-auto lg:w-auto lg:bg-transparent lg:p-0 lg:backdrop-blur-none
+          fixed right-5 top-5 z-[1001] flex h-11 w-11 items-center justify-center rounded-xl
+          border border-border/60 transition-all duration-300 shadow-sm lg:hidden
+          ${showMenu
+            ? "bg-primary text-primary-foreground border-primary"
+            : "bg-card/80 backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
+          }
+        `}
+        onClick={() => setShowMenu(!showMenu)}
+        aria-label="Toggle navigation menu"
+        aria-expanded={showMenu}
+      >
+        {showMenu
+          ? <X className="h-5 w-5" />
+          : <Menu className="h-5 w-5" />
+        }
+      </button>
+
+      {/* ── Mobile: full-screen overlay menu ── */}
+      <div
+        aria-hidden={!showMenu}
+        className={`
+          fixed inset-0 z-[1000] lg:hidden
+          transition-all duration-500 ease-in-out
+          ${showMenu ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
         `}
       >
-        <ul className="flex flex-col gap-1 lg:gap-4">
-          {links.map(({ name, icon, path }, index) => (
-            <li key={index}>
-              <a
-                href={path}
-                className="group relative flex items-center gap-6 rounded-full border-b border-border px-5 py-3.5 text-foreground transition-all duration-300 hover:text-primary
-                  lg:w-12 lg:h-12 lg:items-center lg:justify-center lg:border-0 lg:bg-card lg:p-0 lg:shadow-sm lg:hover:bg-primary lg:hover:text-primary-foreground"
-                onClick={() => setShowMenu(false)}
-              >
-                <span className="text-xl lg:mx-auto [&>svg]:w-5 [&>svg]:h-5">{icon}</span>
-                <span className="text-base font-medium lg:pointer-events-none lg:absolute lg:right-0 lg:top-0 lg:h-full lg:leading-[48px] lg:rounded-l-full lg:bg-primary lg:px-6 lg:pr-6 lg:text-sm lg:text-primary-foreground lg:opacity-0 lg:invisible lg:-z-10 lg:transition-all lg:duration-300 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-hover:right-[27px]">
-                  {name}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Mobile hamburger */}
-      <button
-        className="fixed right-6 top-6 z-[60] flex h-10 w-10 items-center justify-center rounded-md bg-card shadow-sm lg:hidden"
-        onClick={() => setShowMenu(!showMenu)}
-        aria-label="Toggle navigation"
-      >
-        <span
-          className={`relative block h-[1px] w-[22px] rounded bg-foreground transition-all duration-300 
-            before:absolute before:left-0 before:h-[1px] before:w-full before:rounded before:bg-foreground before:transition-all before:duration-300 before:content-['']
-            after:absolute after:left-0 after:h-[1px] after:w-full after:rounded after:bg-foreground after:transition-all after:duration-300 after:content-['']
-            before:-top-2 after:top-2
-            ${showMenu ? "bg-transparent before:top-0 before:rotate-45 after:top-0 after:-rotate-45" : ""}`}
+        {/* Blurred backdrop */}
+        <div
+          className="absolute inset-0 bg-background/80 backdrop-blur-xl"
+          onClick={() => setShowMenu(false)}
         />
-      </button>
-    </nav>
+
+        {/* Menu panel – slides in from left */}
+        <div
+          className={`
+            absolute inset-y-0 left-0 w-full max-w-xs
+            bg-card/95 backdrop-blur-2xl border-r border-border/60
+            flex flex-col justify-center px-8 py-16
+            shadow-2xl transition-transform duration-500 ease-in-out
+            ${showMenu ? "translate-x-0" : "-translate-x-full"}
+          `}
+        >
+          {/* Logo / brand name */}
+          <div className="mb-10">
+            <span className="text-2xl font-extrabold tracking-tight text-foreground">
+              Suriya.<span className="text-primary">dev</span>
+            </span>
+            <p className="mt-1 text-xs text-muted-foreground tracking-wider uppercase">
+              Frontend Engineer
+            </p>
+          </div>
+
+          {/* Nav links */}
+          <ul className="flex flex-col gap-1">
+            {links.map(({ id, name, icon, path }, i) => {
+              const isActive = activeSection === path.replace("#", "");
+              return (
+                <li
+                  key={id}
+                  style={{ transitionDelay: showMenu ? `${i * 60}ms` : "0ms" }}
+                  className={`
+                    transition-all duration-300
+                    ${showMenu ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0"}
+                  `}
+                >
+                  <a
+                    href={path}
+                    onClick={() => setShowMenu(false)}
+                    className={`
+                      group flex items-center gap-4 rounded-xl px-4 py-3.5
+                      transition-all duration-200
+                      ${isActive
+                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                        : "text-foreground hover:bg-primary/10 hover:text-primary"
+                      }
+                    `}
+                  >
+                    <span className={`
+                      flex h-9 w-9 items-center justify-center rounded-lg
+                      [&>svg]:h-[18px] [&>svg]:w-[18px]
+                      transition-colors duration-200
+                      ${isActive
+                        ? "bg-primary-foreground/20 text-primary-foreground"
+                        : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
+                      }
+                    `}>
+                      {icon}
+                    </span>
+                    <span className="text-sm font-semibold tracking-wide">{name}</span>
+
+                    {isActive && (
+                      <span className="ml-auto h-2 w-2 rounded-full bg-primary-foreground/80 animate-pulse" />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Footer */}
+          <div className="mt-10 pt-8 border-t border-border/60">
+            <p className="text-xs text-muted-foreground text-center">
+              © {new Date().getFullYear()} Udhayasoorian · All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
