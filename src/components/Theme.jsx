@@ -1,35 +1,41 @@
 import React, { useEffect, useState } from "react";
-import "./theme.css";
-import { BsMoon, BsSun } from "react-icons/bs";
+import { Moon, Sun } from "lucide-react";
 
 const Theme = () => {
-  const [theme, setTheme] = useState("dark-theme");
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "dark";
+    }
+    return "dark";
+  });
 
   const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
-    } else {
-      setTheme("dark-theme");
+    const next = theme === "dark" ? "light" : "dark";
+    if (!document.startViewTransition) {
+      setTheme(next);
+      return;
     }
+    document.startViewTransition(() => setTheme(next));
   };
 
   useEffect(() => {
-    document.documentElement.className = theme;
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
-    <div>
-      <div className={`style__switcher`}>
-        <div
-          className={`theme__toggler ${
-            theme === "dark-theme" ? "dark" : "light"
-          }`}
-          onClick={toggleTheme}
-        >
-          {theme === "dark-theme" ? <BsMoon /> : <BsSun />}
-        </div>
-      </div>
-    </div>
+    <button
+      onClick={toggleTheme}
+      className="fixed left-0 top-[10%] z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-r-md border border-l-0 border-border bg-card text-foreground shadow-md transition-all duration-300 hover:w-12 hover:bg-primary hover:text-primary-foreground"
+      aria-label="Toggle theme"
+    >
+      {theme === "dark" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+    </button>
   );
 };
 
