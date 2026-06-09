@@ -1,71 +1,73 @@
 import React from "react";
-import Info from "../../components/Info";
-import Stats from "../../components/Stats";
-import { FaDownload } from "react-icons/fa";
-import CV from "../../assets/suriya.pdf";
-import "./about.css";
-import Skills from "../../components/Skills";
-import { resume } from "../../data";
-import ResumeItem from "../../components/ResumeItem";
+import Info from "@/components/Info";
+import Stats from "@/components/Stats";
+import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Skills from "@/components/Skills";
+import { resume } from "@/data";
+import ResumeItem from "@/components/ResumeItem";
 import { Fade, Zoom } from "react-awesome-reveal";
-import { motion, useScroll } from "framer-motion";
 
 const About = () => {
   return (
-    <main className="section container" id="about">
-      <section className="about">
-        <h2 className="section__title">
-          About <span>Me</span>
+    <main className="py-20 px-6" id="about">
+      <section>
+        <h2 className="text-center text-4xl font-bold tracking-tight mb-16">
+          About <span className="text-primary">Me</span>
         </h2>
-        <div className="about__container grid">
-          <div className="about__info">
-            <h3 className="section__subtitle">Personal Info</h3>
-            <ul className="info__list grid">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-xl font-semibold mb-5">Personal Info</h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-8">
               <Info />
             </ul>
             <a
               href="https://drive.google.com/file/d/1RbkzozwdsiAFiN6AWIyfhKuINtBAFA53/view?usp=sharing"
               target="_blank"
-              className="button"
+              rel="noopener noreferrer"
             >
-              Download CV{" "}
-              <span className="button__icon">
-                <FaDownload />
-              </span>
+              <Button size="lg" className="group rounded-full px-8 cursor-pointer">
+                Download CV
+                <Download className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              </Button>
             </a>
           </div>
-          <Fade direction="up" duration={500} triggerOnce="true">
-            <Zoom duration={500} triggerOnce="true">
-              <div className="stats grid">
+          <Fade direction="up" duration={500} triggerOnce>
+            <Zoom duration={500} triggerOnce>
+              <div className="grid grid-cols-1 gap-4">
                 <Stats />
               </div>
             </Zoom>
           </Fade>
         </div>
       </section>
-      <div className="separator"></div>
-      <div className="skills section" id="skills">
-        <h2 className="section__title">
-          My <span>Skills</span>
+
+      <div className="my-16 mx-auto max-w-[40%] border-t border-border" />
+
+      <div className="py-16" id="skills">
+        <h2 className="text-center text-4xl font-bold tracking-tight mb-16">
+          My <span className="text-primary">Skills</span>
         </h2>
-        <div className="skills__container grid">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
           <Skills />
         </div>
       </div>
-      <div className="separator"></div>
-      <section className="resume section" id="journey">
-        <h2 className="section__title">
-          My <span>Journey</span>
+
+      <div className="my-16 mx-auto max-w-[40%] border-t border-border" />
+
+      <section className="py-16" id="journey">
+        <h2 className="text-center text-4xl font-bold tracking-tight mb-16">
+          My <span className="text-primary">Journey</span>
         </h2>
-        <div className="resume__container grid">
-          <div className="resume__data">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
             {resume.map((val) => {
               if (val.category === "experience") {
                 return <ResumeItem key={val.id} {...val} />;
               }
             })}
           </div>
-          <div className="resume__data">
+          <div>
             {resume.map((val) => {
               if (val.category === "education") {
                 return <ResumeItem key={val.id} {...val} />;

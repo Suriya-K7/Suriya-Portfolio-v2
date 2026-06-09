@@ -1,10 +1,9 @@
 import React from "react";
-import "./footer.css";
 
 const Footer = () => {
   let date = new Date();
   return (
-    <footer className='Footer'>
+    <footer className="border-t border-border bg-card py-6 text-center text-sm text-muted-foreground">
       <span>Copyright &copy; {date.getFullYear()} - Suriya-K7</span>
     </footer>
   );

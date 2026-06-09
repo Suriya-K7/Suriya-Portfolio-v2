@@ -1,15 +1,16 @@
 import {
-  FaHome,
-  FaUser,
-  FaFolderOpen,
-  FaEnvelopeOpen,
-  FaBriefcase,
-  FaGraduationCap,
-  FaCode,
-  FaCogs,
-} from "react-icons/fa";
-import { FiFileText, FiExternalLink } from "react-icons/fi";
-import { MdWorkHistory } from "react-icons/md";
+  Home,
+  User,
+  FolderOpen,
+  MailOpen,
+  Briefcase,
+  GraduationCap,
+  Code,
+  Settings,
+  FileText,
+  ExternalLink,
+  History,
+} from "lucide-react";
 
 import Work1 from "./assets/project-1.png";
 import Work2 from "./assets/project-2.png";
@@ -21,37 +22,37 @@ export const links = [
   {
     id: 1,
     name: "Home",
-    icon: <FaHome className="nav__icon" />,
+    icon: <Home className="nav__icon" />,
     path: "#home",
   },
   {
     id: 2,
     name: "About",
-    icon: <FaUser className="nav__icon" />,
+    icon: <User className="nav__icon" />,
     path: "#about",
   },
   {
     id: 5,
     name: "Skills",
-    icon: <FaCogs className="nav__icon" />,
+    icon: <Settings className="nav__icon" />,
     path: "#skills",
   },
   {
     id: 6,
     name: "Journey",
-    icon: <MdWorkHistory className="nav__icon" />,
+    icon: <History className="nav__icon" />,
     path: "#journey",
   },
   {
     id: 3,
     name: "Portfolio",
-    icon: <FaFolderOpen className="nav__icon" />,
+    icon: <FolderOpen className="nav__icon" />,
     path: "#portfolio",
   },
   {
     id: 4,
     name: "Contact",
-    icon: <FaEnvelopeOpen className="nav__icon" />,
+    icon: <MailOpen className="nav__icon" />,
     path: "#contact",
   },
 ];
@@ -140,7 +141,7 @@ export const resume = [
   {
     id: 1,
     category: "education",
-    icon: <FaGraduationCap />,
+    icon: <GraduationCap />,
     year: "Apr 2023 - Sep 2023",
     title: "Full Stack Developer Program <span> Guvi </span>",
     desc: "Learning Full Stack Developer (MERN).",
@@ -148,7 +149,7 @@ export const resume = [
   {
     id: 6,
     category: "education",
-    icon: <FaGraduationCap />,
+    icon: <GraduationCap />,
     year: "Jun 2017 - May 2020",
     title: "Bachelor in Computer Application",
     desc: "Arunachal University of Studies",
@@ -156,7 +157,7 @@ export const resume = [
   {
     id: 10,
     category: "experience",
-    icon: <FaBriefcase />,
+    icon: <Briefcase />,
     year: "Oct 2025 - Present",
     title: "Frontend Engineer",
     desc: "Stratforge Pvt. Ltd., Chennai",
@@ -164,7 +165,7 @@ export const resume = [
   {
     id: 9,
     category: "experience",
-    icon: <FaBriefcase />,
+    icon: <Briefcase />,
     year: "Oct 2023 - Sep 2025",
     title: "Full Stack Developer (MERN)",
     desc: "Website Learners, Chennai",
@@ -172,7 +173,7 @@ export const resume = [
   {
     id: 2,
     category: "experience",
-    icon: <FaBriefcase />,
+    icon: <Briefcase />,
     year: "Jan 2023 - Sep 2023",
     title: "MERN Stack Trainee <span> Guvi, Chennai </span>",
     desc: `Transitioning into IT with a focus on MERN Stack development, undergoing structured training through Guvi's
@@ -181,7 +182,7 @@ program while actively pursuing self-learning and hands-on practice to strengthe
   {
     id: 3,
     category: "experience",
-    icon: <FaBriefcase />,
+    icon: <Briefcase />,
     year: "Jan 2017 - Dec 2022",
     title: "Technical Admin <span> Imdaad.LLC, U.A.E </span>",
     desc: `I managed system updates in Maximo and SAP, and generated client-facing reports using MS Office tools.
@@ -191,7 +192,7 @@ Recognized for excellence with 'Employee of the Year' award from the client on t
   {
     id: 7,
     category: "education",
-    icon: <FaGraduationCap />,
+    icon: <GraduationCap />,
     year: "Jun 2009 - May 2012",
     title: "Diploma in Electrical & Electronics <span> AVC College </span>",
     desc: "First Class with Distinction & 89% ",
@@ -199,7 +200,7 @@ Recognized for excellence with 'Employee of the Year' award from the client on t
   {
     id: 8,
     category: "education",
-    icon: <FaGraduationCap />,
+    icon: <GraduationCap />,
     year: "2008-2009",
     title: "SSLC <span> Swami Vivekananda High School </span>",
     desc: "Scored 83% with Centum in Mathematics",
@@ -307,22 +308,22 @@ export const portfolio = [
     title: "Zen Dashboard",
     details: [
       {
-        icon: <FiFileText />,
+        icon: <FileText />,
         title: "Description : ",
         desc: "Student dashboard for ZEN class, enabling students to attend classes, submit assignments, ask questions, and request leaves. Mentors can easily evaluate tasks using their login.",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Code : ",
         desc: "https://github.com/Suriya-K7/Zen-class-student-dashboard-frontend",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Preview : ",
         desc: "https://zen-class-student-dashboard.netlify.app/",
       },
       {
-        icon: <FaCode />,
+        icon: <Code />,
         title: "Tech Used : ",
         desc: "React, Nodejs, Chartjs, Formik, ExpressJs, Bootstrap, Axios, CSS, Toastify, MongoDB, Mongoose, Nodemailer, JWT, Bcrypt, Cors",
       },
@@ -334,22 +335,22 @@ export const portfolio = [
     title: "Inventory Management",
     details: [
       {
-        icon: <FiFileText />,
+        icon: <FileText />,
         title: "Description : ",
         desc: "The inventory management app provides businesses with a streamlined solution to track, manage, and optimize their stock levels efficiently.",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Code : ",
         desc: "https://github.com/Suriya-K7/Inventory-App-FE",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Preview : ",
         desc: "https://inventory-app-sk7.netlify.app/",
       },
       {
-        icon: <FaCode />,
+        icon: <Code />,
         title: "Tech Used : ",
         desc: "React, Nodejs, Formik, ExpressJs, Axios, CSS, MongoDB, Mongoose, Nodemailer, JWT, Bcrypt, Cloudinary, RazerPay, Bootstrap, Chartjs, Cors, Emailjs, Dotenv",
       },
@@ -361,22 +362,22 @@ export const portfolio = [
     title: "ShareSpace",
     details: [
       {
-        icon: <FiFileText />,
+        icon: <FileText />,
         title: "Description : ",
         desc: "ShareSpace app is a vibrant platform where you can capture and share your life's memorable moments through photos and stories. Stay connected with friends",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Code : ",
         desc: "https://github.com/Suriya-K7/ShareSpace-FE",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Preview : ",
         desc: "https://sharespace-sk7.netlify.app/",
       },
       {
-        icon: <FaCode />,
+        icon: <Code />,
         title: "Tech Used : ",
         desc: "React, Nodejs, formik, MUI, ExpressJs, Axios, CSS, MongoDB, Mongoose, Nodemailer, JWT, Bcrypt, Cloudinary, RazerPay, EmailJs, Dotenv",
       },
@@ -388,22 +389,22 @@ export const portfolio = [
     title: "Chat Buddy",
     details: [
       {
-        icon: <FiFileText />,
+        icon: <FileText />,
         title: "Description : ",
         desc: "Chat Buddy app let Chat seamlessly with friends through text and photos with our user-friendly messaging app.",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Code : ",
         desc: "https://github.com/Suriya-K7/Chat-App-FE",
       },
       {
-        icon: <FiExternalLink />,
+        icon: <ExternalLink />,
         title: "Preview : ",
         desc: "https://chat-app-suriya-k7.netlify.app/",
       },
       {
-        icon: <FaCode />,
+        icon: <Code />,
         title: "Tech Used : ",
         desc: "React, Nodejs, Formik, ExpressJs, Axios, CSS, MongoDB, Mongoose, Nodemailer, JWT, Bcrypt, Cloudinary, RazerPay, EmailJs, WebSocket, Cookie-parser, Dotenv",
       },
