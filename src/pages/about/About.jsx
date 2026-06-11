@@ -122,7 +122,7 @@ const About = () => {
   useReveal(rootRef);
 
   return (
-    <main ref={rootRef} id="about" className="section-pad">
+    <section ref={rootRef} id="about" className="section-pad">
 
       {/* ════════ ABOUT ME ════════ */}
       <section className="section-container">
@@ -223,7 +223,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </main>
+    </section>
   );
 };
 

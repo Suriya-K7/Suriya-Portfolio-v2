@@ -22,10 +22,12 @@ function App() {
         <Toaster closeButton position="top-right" richColors />
         <Navbar />
         <Theme />
-        <Home />
-        <About />
-        <Portfolio />
-        <Contact />
+        <main id="main-content">
+          <Home />
+          <About />
+          <Portfolio />
+          <Contact />
+        </main>
         <Footer />
       </TooltipProvider>
     </SmoothScroll>

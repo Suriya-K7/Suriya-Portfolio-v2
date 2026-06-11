@@ -4,12 +4,16 @@ import { CircleAlert } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const TextField = ({ ...props }) => {
+const TextField = ({ id, ...props }) => {
   const [field, meta] = useField(props);
+  const inputId = id || props.name;
+  const ariaLabel = props.placeholder || props.name;
   return (
     <div className="relative">
       {props.type !== "textarea" ? (
         <Input
+          id={inputId}
+          aria-label={ariaLabel}
           className={meta.touched && meta.error ? "border-destructive" : ""}
           autoComplete="off"
           {...field}
@@ -17,6 +21,8 @@ const TextField = ({ ...props }) => {
         />
       ) : (
         <Textarea
+          id={inputId}
+          aria-label={ariaLabel}
           className={`min-h-[120px] ${meta.touched && meta.error ? "border-destructive" : ""}`}
           autoComplete="off"
           {...field}
