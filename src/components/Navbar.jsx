@@ -5,7 +5,6 @@ import { X, Menu } from "lucide-react";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
 
   // Track active section via IntersectionObserver
   useEffect(() => {
@@ -20,12 +19,6 @@ const Navbar = () => {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Lock body scroll when mobile menu is open

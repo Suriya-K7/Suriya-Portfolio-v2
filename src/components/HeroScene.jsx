@@ -1,26 +1,27 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
+
+// Generate random points inside a sphere of radius 2.0
+const spherePoints = (() => {
+  const points = new Float32Array(3600);
+  for (let i = 0; i < 3600; i += 3) {
+    const u = Math.random();
+    const v = Math.random();
+    const theta = u * 2.0 * Math.PI;
+    const phi = Math.acos(2.0 * v - 1.0);
+    const r = Math.cbrt(Math.random()) * 2.2;
+    
+    points[i] = r * Math.sin(phi) * Math.cos(theta);
+    points[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+    points[i + 2] = r * Math.cos(phi);
+  }
+  return points;
+})();
 
 function Particles() {
   const ref = useRef();
   
-  // Generate random points inside a sphere of radius 2.0
-  const sphere = useMemo(() => {
-    const points = new Float32Array(3600);
-    for (let i = 0; i < 3600; i += 3) {
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-      const r = Math.cbrt(Math.random()) * 2.2;
-      
-      points[i] = r * Math.sin(phi) * Math.cos(theta);
-      points[i + 1] = r * Math.sin(phi) * Math.sin(theta);
-      points[i + 2] = r * Math.cos(phi);
-    }
-    return points;
-  }, []);
 
   useFrame((state, delta) => {
     if (ref.current) {
@@ -31,7 +32,7 @@ function Particles() {
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
+      <Points ref={ref} positions={spherePoints} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#6366f1"

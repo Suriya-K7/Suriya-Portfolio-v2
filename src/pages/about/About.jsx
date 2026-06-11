@@ -113,7 +113,7 @@ function useReveal(containerRef) {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [containerRef]);
 }
 
 /* ═══════════ ABOUT PAGE ═══════════ */
