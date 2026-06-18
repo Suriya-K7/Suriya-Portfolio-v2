@@ -258,3 +258,10 @@
   object-fit: contain;
   border-radius: var(--radius);
 }
+
+/* Hide native cursor globally on screens where custom cursor is enabled */
+@media (min-width: 768px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}

@@ -26,11 +26,14 @@ const Home = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Set initial states for clean page-load transition (no flash)
-      gsap.set([titleRef.current, roleRef.current, descRef.current, btnRef.current], {
-        opacity: 0,
-        y: 40,
-        filter: "blur(8px)",
-      });
+      gsap.set(
+        [titleRef.current, roleRef.current, descRef.current, btnRef.current],
+        {
+          opacity: 0,
+          y: 40,
+          filter: "blur(8px)",
+        },
+      );
       gsap.set(imgRef.current, {
         opacity: 0,
         scale: 0.85,
@@ -38,15 +41,18 @@ const Home = () => {
       });
 
       // Animate content elements
-      gsap.to([titleRef.current, roleRef.current, descRef.current, btnRef.current], {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-        stagger: 0.12,
-        duration: 1.2,
-        ease: "power4.out",
-        delay: 0.3,
-      });
+      gsap.to(
+        [titleRef.current, roleRef.current, descRef.current, btnRef.current],
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          stagger: 0.12,
+          duration: 1.2,
+          ease: "power4.out",
+          delay: 0.3,
+        },
+      );
 
       // Animate image container
       gsap.to(imgRef.current, {
@@ -79,8 +85,10 @@ const Home = () => {
       <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Profile Image Column */}
         <div className="lg:col-span-4 flex justify-center order-1 lg:order-1">
-          <div ref={imgRef} className="relative flex items-center justify-center">
-
+          <div
+            ref={imgRef}
+            className="relative flex items-center justify-center"
+          >
             {/* Outer spinning gradient ring */}
             <div className="absolute w-72 h-72 sm:w-88 sm:h-88 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-primary via-violet-500 to-teal-400 opacity-30 blur-2xl animate-pulse" />
 
@@ -96,7 +104,7 @@ const Home = () => {
               <div className="w-full h-full rounded-full overflow-hidden bg-card border-4 border-background">
                 <img
                   src={Profile}
-                  alt="Udhayasoorian"
+                  alt="Suriya"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
                   loading="eager"
                 />
@@ -113,7 +121,10 @@ const Home = () => {
 
         {/* Text Content Column */}
         <div className="lg:col-span-8 space-y-6 text-left order-2 lg:order-2 flex flex-col justify-center">
-          <div ref={roleRef} className="flex items-center gap-2 text-primary font-mono text-xs md:text-sm uppercase tracking-[0.25em]">
+          <div
+            ref={roleRef}
+            className="flex items-center gap-2 text-primary font-mono text-xs md:text-sm uppercase tracking-[0.25em]"
+          >
             <Sparkles className="w-4 h-4 animate-pulse" />
             <span>{text}</span>
           </div>
@@ -122,7 +133,10 @@ const Home = () => {
             ref={titleRef}
             className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-none text-foreground font-sans"
           >
-            I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-400">Udhayasoorian</span>
+            I'm{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-400">
+              Suriya
+            </span>
           </h1>
 
           <p
@@ -153,10 +167,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Decorative vertical gradient borders or badges */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none opacity-50 hover:opacity-100 transition-opacity duration-300 animate-bounce">
-        <span className="text-xs tracking-widest uppercase font-mono text-muted-foreground">Scroll Down</span>
+        <span className="text-xs tracking-widest uppercase font-mono text-muted-foreground">
+          Scroll Down
+        </span>
         <div className="w-1 h-8 rounded-full bg-gradient-to-b from-primary to-transparent" />
       </div>
     </section>

@@ -15,7 +15,7 @@ const Navbar = () => {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
@@ -24,7 +24,9 @@ const Navbar = () => {
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = showMenu ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [showMenu]);
 
   return (
@@ -46,14 +48,17 @@ const Navbar = () => {
                     group relative flex h-12 w-12 items-center justify-center rounded-full
                     border transition-all duration-300
                     shadow-sm hover:shadow-primary/30 hover:shadow-md
-                    ${isActive
-                      ? "bg-primary border-primary text-primary-foreground shadow-primary/40 shadow-md"
-                      : "bg-card/80 border-border/60 text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground backdrop-blur-sm"
+                    ${
+                      isActive
+                        ? "bg-primary border-primary text-primary-foreground shadow-primary/40 shadow-md"
+                        : "bg-card/80 border-border/60 text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground backdrop-blur-sm"
                     }
                   `}
                 >
                   {/* Icon */}
-                  <span className="[&>svg]:h-[18px] [&>svg]:w-[18px]">{icon}</span>
+                  <span className="[&>svg]:h-[18px] [&>svg]:w-[18px]">
+                    {icon}
+                  </span>
 
                   {/* Tooltip label – slides in from right */}
                   <span
@@ -83,19 +88,17 @@ const Navbar = () => {
         className={`
           fixed right-5 top-5 z-[1001] flex h-11 w-11 items-center justify-center rounded-xl
           border border-border/60 transition-all duration-300 shadow-sm lg:hidden
-          ${showMenu
-            ? "bg-primary text-primary-foreground border-primary"
-            : "bg-card/80 backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
+          ${
+            showMenu
+              ? "bg-primary text-primary-foreground border-primary"
+              : "bg-card/80 backdrop-blur-md text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
           }
         `}
         onClick={() => setShowMenu(!showMenu)}
         aria-label="Toggle navigation menu"
         aria-expanded={showMenu}
       >
-        {showMenu
-          ? <X className="h-5 w-5" />
-          : <Menu className="h-5 w-5" />
-        }
+        {showMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
       {/* ── Mobile: full-screen overlay menu ── */}
@@ -152,24 +155,30 @@ const Navbar = () => {
                     className={`
                       group flex items-center gap-4 rounded-xl px-4 py-3.5
                       transition-all duration-200
-                      ${isActive
-                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
-                        : "text-foreground hover:bg-primary/10 hover:text-primary"
+                      ${
+                        isActive
+                          ? "bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                          : "text-foreground hover:bg-primary/10 hover:text-primary"
                       }
                     `}
                   >
-                    <span className={`
+                    <span
+                      className={`
                       flex h-9 w-9 items-center justify-center rounded-lg
                       [&>svg]:h-[18px] [&>svg]:w-[18px]
                       transition-colors duration-200
-                      ${isActive
-                        ? "bg-primary-foreground/20 text-primary-foreground"
-                        : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
+                      ${
+                        isActive
+                          ? "bg-primary-foreground/20 text-primary-foreground"
+                          : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
                       }
-                    `}>
+                    `}
+                    >
                       {icon}
                     </span>
-                    <span className="text-sm font-semibold tracking-wide">{name}</span>
+                    <span className="text-sm font-semibold tracking-wide">
+                      {name}
+                    </span>
 
                     {isActive && (
                       <span className="ml-auto h-2 w-2 rounded-full bg-primary-foreground/80 animate-pulse" />
@@ -183,7 +192,7 @@ const Navbar = () => {
           {/* Footer */}
           <div className="mt-10 pt-8 border-t border-border/60">
             <p className="text-xs text-muted-foreground text-center">
-              © {new Date().getFullYear()} Udhayasoorian · All rights reserved
+              © {new Date().getFullYear()} Suriya · All rights reserved
             </p>
           </div>
         </div>
