@@ -13,7 +13,7 @@ const Stats = () => {
             hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1
             hover:border-primary/30 cursor-default"
         >
-          <CardContent className="p-5 sm:p-6 flex items-center gap-5">
+          <CardContent className="p-4 sm:p-5 flex items-center gap-4">
             {/* Number */}
             <div className="shrink-0">
               <span className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">

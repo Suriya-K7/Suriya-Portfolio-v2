@@ -11,39 +11,26 @@ const Portfolio = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      /* Heading fade-up */
       gsap.fromTo(
         ".portfolio-heading",
-        { opacity: 0, y: 32 },
+        { opacity: 0, y: 28 },
         {
           opacity: 1, y: 0,
-          duration: 0.8,
+          duration: 0.75,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".portfolio-heading",
-            start: "top 87%",
-            once: true,
-          },
+          scrollTrigger: { trigger: ".portfolio-heading", start: "top 87%", once: true },
         }
       );
 
-      /* Cards — staggered scale + fade */
       gsap.fromTo(
         ".portfolio-card",
-        { opacity: 0, y: 40, scale: 0.96 },
+        { opacity: 0, y: 36, scale: 0.96 },
         {
           opacity: 1, y: 0, scale: 1,
           duration: 0.7,
           ease: "power3.out",
-          stagger: {
-            amount: 0.5,      // total stagger spread
-            from: "start",
-          },
-          scrollTrigger: {
-            trigger: ".portfolio-grid",
-            start: "top 83%",
-            once: true,
-          },
+          stagger: { amount: 0.45, from: "start" },
+          scrollTrigger: { trigger: ".portfolio-grid", start: "top 83%", once: true },
         }
       );
     }, rootRef);
@@ -55,41 +42,45 @@ const Portfolio = () => {
     <section
       ref={rootRef}
       id="portfolio"
-      className="section-pad relative overflow-hidden"
+      className="section-pad relative overflow-hidden bg-muted/10"
     >
-      {/* Subtle background grid decoration */}
+      {/* Subtle dot-grid background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(hsl(var(--border)/0.4)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border)/0.4)_1px,transparent_1px)]"
-        style={{ backgroundSize: "48px 48px", maskImage: "radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent)" }}
+        className="pointer-events-none absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: "radial-gradient(hsl(var(--border)) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          maskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent)",
+        }}
       />
 
       <div className="section-container relative">
 
-        {/* ── Section heading ── */}
-        <div className="portfolio-heading text-center mb-14 sm:mb-20">
-          <p className="label-eyebrow mb-3">Selected Works</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground">
+        {/* ── Heading ── */}
+        <div className="portfolio-heading mb-12 sm:mb-16">
+          <p className="label-eyebrow mb-4">Selected Works</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-4">
             My{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-300">
               Portfolio
             </span>
           </h2>
-          <p className="mt-4 max-w-md mx-auto prose-body">
+          <p className="prose-body max-w-md">
             Full-stack projects built with the MERN stack and modern tooling.
             Click any card to explore details, stack, and live demos.
           </p>
         </div>
 
         {/* ── Projects grid ── */}
-        <div className="portfolio-grid grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+        <div className="portfolio-grid grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {portfolio.map((item, index) => (
             <PortfolioItem key={item.id} {...item} index={index} />
           ))}
         </div>
 
         {/* ── Bottom CTA ── */}
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <a
             href="https://github.com/Suriya-K7"
             target="_blank"
@@ -107,7 +98,7 @@ const Portfolio = () => {
   );
 };
 
-/* Inline SVG to avoid lucide export issues */
+/* Inline SVG icons */
 const GitBranchIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
     fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

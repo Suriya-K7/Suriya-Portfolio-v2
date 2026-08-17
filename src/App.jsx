@@ -1,12 +1,10 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import Home from "@/pages/home/Home";
-import About from "@/pages/about/About";
-import Portfolio from "@/pages/portfolio/Portfolio";
-import Contact from "@/pages/contact/Contact";
-import Theme from "@/components/Theme";
-import Footer from "@/pages/footer/Footer";
+import HomePage from "@/pages/HomePage";
+import ProjectsPage from "@/pages/ProjectsPage";
+import AboutPage from "@/pages/AboutPage";
 
 // Global premium features
 import SmoothScroll from "@/components/SmoothScroll";
@@ -16,21 +14,25 @@ import { Toaster } from "@/components/ui/sonner";
 
 function App() {
   return (
-    <SmoothScroll>
-      <TooltipProvider>
-        <CustomCursor />
-        <Toaster closeButton position="top-right" richColors />
-        <Navbar />
-        <Theme />
-        <main id="main-content">
-          <Home />
-          <About />
-          <Portfolio />
-          <Contact />
-        </main>
-        <Footer />
-      </TooltipProvider>
-    </SmoothScroll>
+    <BrowserRouter>
+      <SmoothScroll>
+        <TooltipProvider>
+          <CustomCursor />
+          <Toaster closeButton position="top-right" richColors />
+          <a href="#main-content" className="skip-to-content">
+            Skip to main content
+          </a>
+          <Navbar />
+          <main id="main-content">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+            </Routes>
+          </main>
+        </TooltipProvider>
+      </SmoothScroll>
+    </BrowserRouter>
   );
 }
 

@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── Inline SVG icons (avoids lucide export issues) ── */
+/* ── Inline SVG icons ── */
 const LinkedinIcon = ({ className }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -29,21 +29,20 @@ const GithubIcon = ({ className }) => (
   </svg>
 );
 
-/* ── Contact info card ── */
-const ContactCard = ({ icon: Icon, label, value, href }) => (
+/* ── Direct channel item ── */
+const DirectChannel = ({ icon: Icon, label, value, href }) => (
   <a
     href={href}
-    className="contact-card group flex items-center gap-4 rounded-xl border border-border/60 bg-card
-      p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-md hover:shadow-primary/10
-      hover:-translate-y-0.5"
+    className="group flex items-center gap-3 rounded-xl border border-border/40 bg-background/30
+      p-3.5 transition-all duration-300 hover:border-primary/40 hover:bg-primary/5"
   >
-    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl
+    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg
       bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground
       transition-all duration-300">
-      <Icon className="h-5 w-5" />
+      <Icon className="h-4 w-4" />
     </div>
     <div className="min-w-0">
-      <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-0.5">{label}</p>
+      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-0.5">{label}</p>
       <p className="text-sm font-semibold text-foreground truncate">{value}</p>
     </div>
   </a>
@@ -58,23 +57,20 @@ const Contact = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      /* Heading */
-      gsap.fromTo(".contact-heading",
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.75, ease: "power3.out",
-          scrollTrigger: { trigger: ".contact-heading", start: "top 85%", once: true } }
-      );
-      /* Left column */
       gsap.fromTo(".contact-left > *",
-        { opacity: 0, x: -28 },
-        { opacity: 1, x: 0, stagger: 0.1, duration: 0.6, ease: "power3.out",
-          scrollTrigger: { trigger: ".contact-left", start: "top 82%", once: true } }
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, stagger: 0.1, duration: 0.7, ease: "power3.out",
+          scrollTrigger: { trigger: ".contact-left", start: "top 85%", once: true } }
       );
-      /* Form fields */
+      gsap.fromTo(".contact-panel",
+        { opacity: 0, x: 28 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power3.out",
+          scrollTrigger: { trigger: ".contact-panel", start: "top 85%", once: true } }
+      );
       gsap.fromTo(".contact-form > *",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: "power3.out",
-          scrollTrigger: { trigger: ".contact-form", start: "top 82%", once: true } }
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, stagger: 0.09, duration: 0.6, ease: "power3.out",
+          scrollTrigger: { trigger: ".contact-form", start: "top 85%", once: true } }
       );
     }, rootRef);
     return () => ctx.revert();
@@ -95,110 +91,128 @@ const Contact = () => {
   };
 
   return (
-    <section ref={rootRef} id="contact" className="section-pad bg-muted/20">
+    <section ref={rootRef} id="contact" className="section-pad">
       <div className="section-container">
 
-        {/* Heading */}
-        <div className="contact-heading text-center mb-14 sm:mb-20">
-          <p className="label-eyebrow mb-3">Say Hello</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-foreground">
-            Get In{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-400">
-              Touch
-            </span>
-          </h2>
-          <p className="mt-4 max-w-md mx-auto prose-body">
-            I'm open to new projects, creative ideas, or opportunities.
-            Let's build something great together.
-          </p>
-        </div>
+        {/* ── Two-column layout ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-16 items-start">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-10 lg:gap-16 items-start">
-
-          {/* ── Left: contact info ── */}
-          <div className="contact-left space-y-6">
+          {/* ── Left: heading + form ── */}
+          <div className="contact-left flex flex-col gap-10">
+            {/* Heading */}
             <div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Don't be shy!</h3>
-              <p className="prose-body">
-                Feel free to reach out. I am always open to discussing new
-                projects, creative ideas, or opportunities to collaborate.
+              <p className="label-eyebrow mb-4">Contact</p>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-tight mb-4">
+                Let's connect on{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-300">
+                  a project
+                </span>
+              </h2>
+              <p className="prose-body max-w-md">
+                I'm open to new projects, creative ideas, and collaboration opportunities.
+                Let's build something great together.
               </p>
             </div>
 
-            <div className="space-y-3">
-              <ContactCard
-                icon={Mail}
-                label="Email"
-                value="suriya.fsd@gmail.com"
-                href="mailto:suriya.fsd@gmail.com"
-              />
-              <ContactCard
-                icon={Phone}
-                label="Phone"
-                value="+91-7639718893"
-                href="tel:+917639718893"
-              />
-            </div>
+            {/* Contact form */}
+            <Formik
+              initialValues={{ from_name: "", from_email: "", from_subject: "", message: "" }}
+              validationSchema={validate}
+              onSubmit={(values, { resetForm }) => { sendEmail(values); resetForm(); }}
+            >
+              {() => (
+                <Form
+                  ref={form}
+                  className="contact-form flex flex-col gap-4 rounded-2xl border border-border/50
+                    bg-card/50 backdrop-blur-sm p-6 sm:p-8"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <TextField name="from_name" placeholder="Your Name" type="text" />
+                    <TextField name="from_email" placeholder="Your Email" type="email" />
+                  </div>
+                  <TextField name="from_subject" placeholder="Subject" type="text" />
+                  <TextField name="message" placeholder="Your message…" type="textarea" />
 
-            {/* Social links */}
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
-                Follow Me
-              </p>
-              <div className="flex gap-3">
-                {[
-                  { href: "https://linkedin.com/in/suriya-kesavamurthy-50616825a", Icon: LinkedinIcon, label: "LinkedIn" },
-                  { href: "https://github.com/suriya-k7", Icon: GithubIcon, label: "GitHub" },
-                ].map(({ href, Icon, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-border/60
-                      text-muted-foreground transition-all duration-300
-                      hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105"
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="group w-full sm:w-auto gap-2 rounded-full px-8 cursor-pointer
+                      shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30
+                      transition-all duration-300"
                   >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
+                    Send Message
+                    <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Form>
+              )}
+            </Formik>
+          </div>
+
+          {/* ── Right: Direct channels panel ── */}
+          <div className="contact-panel sticky top-24">
+            <div className="rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-6 sm:p-8">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">
+                Direct Channels
+              </p>
+              <p className="text-base font-bold text-foreground mb-6">
+                Open to frontend / full-stack roles
+              </p>
+
+              <div className="space-y-3 mb-8">
+                <DirectChannel
+                  icon={Mail}
+                  label="Email"
+                  value="suriya.fsd@gmail.com"
+                  href="mailto:suriya.fsd@gmail.com"
+                />
+                <DirectChannel
+                  icon={Phone}
+                  label="Phone"
+                  value="+91-7639718893"
+                  href="tel:+917639718893"
+                />
+              </div>
+
+              {/* Social links */}
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
+                  Find me online
+                </p>
+                <div className="flex gap-3">
+                  {[
+                    { href: "https://linkedin.com/in/suriya-kesavamurthy-50616825a", Icon: LinkedinIcon, label: "LinkedIn" },
+                    { href: "https://github.com/suriya-k7", Icon: GithubIcon, label: "GitHub" },
+                  ].map(({ href, Icon, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-border/50
+                        text-muted-foreground transition-all duration-300
+                        hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-105"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Availability badge */}
+              <div className="mt-8 pt-6 border-t border-border/40">
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <p className="text-sm font-semibold text-foreground">
+                    Available for new opportunities
+                  </p>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1 ml-[18px]">
+                  Chennai, Tamil Nadu · Remote friendly
+                </p>
               </div>
             </div>
           </div>
-
-          {/* ── Right: form ── */}
-          <Formik
-            initialValues={{ from_name: "", from_email: "", from_subject: "", message: "" }}
-            validationSchema={validate}
-            onSubmit={(values, { resetForm }) => { sendEmail(values); resetForm(); }}
-          >
-            {() => (
-              <Form
-                ref={form}
-                className="contact-form space-y-4 rounded-2xl border border-border/60
-                  bg-card p-6 sm:p-8 shadow-sm"
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <TextField name="from_name" placeholder="Your Name" type="text" />
-                  <TextField name="from_email" placeholder="Your Email" type="email" />
-                </div>
-                <TextField name="from_subject" placeholder="Subject" type="text" />
-                <TextField name="message" placeholder="Your message…" type="textarea" />
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="group w-full sm:w-auto gap-2 rounded-full px-8 cursor-pointer
-                    shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/35
-                    transition-all duration-300"
-                >
-                  Send Message
-                  <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </Form>
-            )}
-          </Formik>
         </div>
       </div>
     </section>

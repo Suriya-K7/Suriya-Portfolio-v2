@@ -1,16 +1,17 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="border-t border-border/60 bg-card py-8">
-    <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-3">
-      <span className="text-sm font-semibold text-foreground">
-        Suriya.<span className="text-primary">dev</span>
-      </span>
-      <p className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
-        © {new Date().getFullYear()} Suriya · All rights reserved
-      </p>
+  <footer className="w-full py-8 border-t border-border/40">
+    <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      {/* Wordmark */}
+      <a href="/" className="text-sm font-semibold tracking-tight">
+        <span className="text-foreground">Suriya</span>
+        <span className="text-muted-foreground">.dev</span>
+      </a>
+
+      {/* Copyright */}
       <p className="text-[11px] text-muted-foreground">
-        Built with React · GSAP · ShadCN
+        © {new Date().getFullYear()} Suriya Kesavamurthy · All rights reserved
       </p>
     </div>
   </footer>

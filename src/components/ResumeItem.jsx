@@ -14,7 +14,7 @@ import parse from "html-react-parser";
  */
 const ResumeItem = ({ icon, year, title, desc }) => {
   return (
-    <div className="journey-item group relative flex gap-5 pb-10 last:pb-0">
+    <div className="journey-item group relative flex gap-6 pb-12 last:pb-0">
 
       {/* ── Left: icon + vertical timeline line ── */}
       <div className="relative flex flex-col items-center shrink-0">
@@ -34,18 +34,18 @@ const ResumeItem = ({ icon, year, title, desc }) => {
       </div>
 
       {/* ── Right: content ── */}
-      <div className="flex-1 min-w-0 pt-1 pb-2">
+      <div className="flex-1 min-w-0 pt-1.5 pb-3">
         {/* Year badge */}
         <span
           className="inline-flex items-center rounded-full bg-primary/8 border border-primary/20
-            px-3 py-0.5 text-[11px] font-semibold text-primary tracking-wide mb-3"
+            px-3 py-0.5 text-[11px] font-semibold text-primary tracking-wide mb-2"
         >
           {year}
         </span>
 
         {/* Title */}
         <h3
-          className="text-[15px] font-semibold text-foreground leading-snug mb-1
+          className="text-[15px] font-semibold text-foreground leading-snug mb-1.5
             [&>span]:ml-2 [&>span]:text-[13px] [&>span]:font-normal [&>span]:text-muted-foreground"
         >
           {parse(title)}

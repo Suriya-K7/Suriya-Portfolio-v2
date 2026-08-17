@@ -140,7 +140,7 @@ const PortfolioItem = ({ img, title, details, index = 0 }) => {
         </div>
 
         {/* ── Card footer with description preview ── */}
-        <div className="flex-1 px-4 py-3 border-t border-border/40">
+        <div className="flex-1 px-5 py-4 border-t border-border/40">
           <p className="text-[12px] leading-relaxed text-muted-foreground line-clamp-2">
             {descDetail?.desc}
           </p>
@@ -207,7 +207,7 @@ const PortfolioItem = ({ img, title, details, index = 0 }) => {
 
             {/* About */}
             {descDetail && (
-              <div className="px-5 sm:px-6 pt-5 pb-4 border-b border-border/40">
+              <div className="px-6 sm:px-7 pt-6 pb-5 border-b border-border/40">
                 <p className="text-[11px] font-bold uppercase tracking-widest text-primary mb-2">
                   About this project
                 </p>
@@ -219,14 +219,14 @@ const PortfolioItem = ({ img, title, details, index = 0 }) => {
 
             {/* Tech stack */}
             {techList.length > 0 && (
-              <div className="px-5 sm:px-6 py-4 border-b border-border/40">
+              <div className="px-6 sm:px-7 py-5 border-b border-border/40">
                 <div className="flex items-center gap-2 mb-3">
                   <Layers className="h-3.5 w-3.5 text-primary shrink-0" />
                   <p className="text-[11px] font-bold uppercase tracking-widest text-primary">
                     Tech Stack
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {techList.map((tech, i) => (
                     <Badge
                       key={i}
@@ -243,7 +243,7 @@ const PortfolioItem = ({ img, title, details, index = 0 }) => {
             )}
 
             {/* Links + CTAs */}
-            <div className="px-5 sm:px-6 py-5 space-y-3">
+            <div className="px-6 sm:px-7 py-6 space-y-3">
 
               {/* URL display */}
               {(previewDetail || codeDetail) && (
