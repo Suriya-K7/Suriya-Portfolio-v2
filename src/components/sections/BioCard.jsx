@@ -6,11 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ── Trajectory map sidebar ── */
 const MILESTONES = [
-  { num: "01", title: "Frontend", tags: "react · javascript · css", status: "done" },
-  { num: "02", title: "Full Stack", tags: "node.js · mongodb · apis", status: "done" },
-  { num: "03", title: "Architecture", tags: "typescript · design patterns", status: "now" },
-  { num: "04", title: "Cloud & DevOps", tags: "aws · ci/cd · deployment", status: "next" },
-  { num: "05", title: "Tech Lead", tags: "mentoring · system design", status: "next" },
+  { num: "01", title: "Full Stack Dev", tags: "react · node.js · mongodb · langchain", status: "done" },
+  { num: "02", title: "Frontend Engineer", tags: "react · typescript · rtk · python · fastapi", status: "now" },
+  { num: "03", title: "Full Stack Architect", tags: "system design · aws · microservices", status: "next" },
+  { num: "04", title: "Tech Lead", tags: "mentoring · architecture · team leadership", status: "next" },
 ];
 
 const MilestoneItem = ({ num, title, tags, status }) => {
@@ -93,25 +92,30 @@ const BioCard = () => {
         <div className="prose-body space-y-5 max-w-3xl">
           <p>
             I'm Suriya, based in Chennai. I'm a{" "}
-            <strong className="text-foreground font-semibold">MERN Stack Developer</strong> with{" "}
-            2.7+ years of hands-on experience building full-stack web applications using{" "}
+            <strong className="text-foreground font-semibold">Full Stack Developer & Frontend Engineer</strong> with{" "}
+            3+ years of hands-on experience building production applications using{" "}
             <span style={{ color: "var(--accent-orange)" }}>React.js</span>,{" "}
-            <span style={{ color: "var(--accent-orange)" }}>Node.js</span>,{" "}
-            <span style={{ color: "var(--accent-orange)" }}>Next.js</span>, and{" "}
+            <span style={{ color: "var(--accent-orange)" }}>TypeScript</span>,{" "}
+            <span style={{ color: "var(--accent-orange)" }}>Node.js</span>, and{" "}
             <span style={{ color: "var(--accent-orange)" }}>MongoDB</span>.
           </p>
           <p>
             My approach is simple: build the thing, deploy it, iterate, and ship.
             I deliver clean, scalable interfaces backed by reliable APIs — currently
             working as a Frontend Engineer at{" "}
-            <strong className="text-foreground font-semibold">Stratforge Pvt. Ltd.</strong> in Chennai.
+            <strong className="text-foreground font-semibold">Stratforge Pvt. Ltd.</strong> in Chennai,
+            where I'm building AI-powered features with{" "}
+            <span style={{ color: "var(--accent-orange)" }}>Python</span>,{" "}
+            <span style={{ color: "var(--accent-orange)" }}>FastAPI</span>, and{" "}
+            <span style={{ color: "var(--accent-orange)" }}>LangChain</span>.
           </p>
           <p>
             My toolkit extends across{" "}
-            <strong className="text-foreground font-semibold">TypeScript</strong>,{" "}
+            <strong className="text-foreground font-semibold">Redux Toolkit</strong>,{" "}
             <strong className="text-foreground font-semibold">Tailwind CSS</strong>,{" "}
-            <strong className="text-foreground font-semibold">ShadCN UI</strong>, and{" "}
-            <strong className="text-foreground font-semibold">RESTful APIs</strong>.
+            <strong className="text-foreground font-semibold">ShadCN UI</strong>,{" "}
+            <strong className="text-foreground font-semibold">AI Agents</strong>, and{" "}
+            <strong className="text-foreground font-semibold">Microservices</strong>.
             Before entering tech I spent 6+ years in a Non-IT professional role,
             which sharpened my problem-solving instincts and appreciation for reliable,
             maintainable systems.

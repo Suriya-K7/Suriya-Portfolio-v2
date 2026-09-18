@@ -7,30 +7,30 @@ gsap.registerPlugin(ScrollTrigger);
 const PHASES = [
   {
     num: "PHASE.01",
-    status: "CURRENT",
-    title: "Frontend Engineer",
-    tags: "React · TypeScript · UI Systems",
-    statusType: "active",
+    status: "COMPLETED",
+    title: "Junior Full Stack Developer",
+    tags: "React · Node.js · MongoDB · LangChain",
+    statusType: "done",
   },
   {
     num: "PHASE.02",
-    status: "NEXT",
-    title: "Full Stack Architect",
-    tags: "Node.js · System Design · APIs",
-    statusType: "pending",
+    status: "CURRENT",
+    title: "Frontend Engineer",
+    tags: "React · TypeScript · RTK · Python · FastAPI · AI Agents",
+    statusType: "active",
   },
   {
     num: "PHASE.03",
-    status: "FUTURE",
-    title: "Tech Lead",
-    tags: "Team Leadership · Architecture · Mentoring",
+    status: "NEXT",
+    title: "Full Stack Architect",
+    tags: "System Design · AWS · APIs · Microservices",
     statusType: "pending",
   },
   {
     num: "PHASE.04",
     status: "NORTH-STAR",
-    title: "Engineering Manager",
-    tags: "Strategy · Scaling · Culture",
+    title: "Tech Lead",
+    tags: "Team Leadership · Architecture · Mentoring",
     statusType: "pending",
   },
 ];
@@ -40,7 +40,7 @@ const TrajectoryCard = ({ num, status, title, tags, statusType }) => (
     {/* Timeline */}
     <div className="timeline-line" aria-hidden="true" />
     <div
-      className={`timeline-dot ${statusType === "active" ? "timeline-dot--active" : ""}`}
+      className={`timeline-dot ${statusType === "active" ? "timeline-dot--active" : ""} ${statusType === "done" ? "timeline-dot--done" : ""}`}
       aria-hidden="true"
     />
 
@@ -50,7 +50,9 @@ const TrajectoryCard = ({ num, status, title, tags, statusType }) => (
           {num}
         </span>
         <span className={`text-[9px] font-mono font-bold tracking-widest uppercase ${
-          statusType === "active" ? "text-[var(--accent-orange)]" : "text-muted-foreground/40"
+          statusType === "active" ? "text-[var(--accent-orange)]"
+          : statusType === "done" ? "text-emerald-500"
+          : "text-muted-foreground/40"
         }`}>
           {status}
         </span>

@@ -122,8 +122,8 @@ export const personalInfo = [
 export const stats = [
   {
     id: 1,
-    no: "2.7+",
-    title: "Years of Experience  <br /> In MERN Stack",
+    no: "3+",
+    title: "Years of Experience  <br /> In Full Stack Development",
   },
   {
     id: 2,
@@ -159,16 +159,16 @@ export const resume = [
     category: "experience",
     icon: <Briefcase />,
     year: "Oct 2025 - Present",
-    title: "Frontend Engineer",
-    desc: "Stratforge Pvt. Ltd., Chennai",
+    title: "Frontend Engineer <span> Stratforge Pvt. Ltd., Chennai </span>",
+    desc: `Building enterprise-grade React applications with TypeScript and Redux Toolkit. Developing AI-powered features using Python FastAPI microservices and LangChain. Implementing complex UI systems with ShadCN and Tailwind CSS. Working with AI agents architecture and integrating LLM-based workflows into production applications.`,
   },
   {
     id: 9,
     category: "experience",
     icon: <Briefcase />,
     year: "Oct 2023 - Sep 2025",
-    title: "Full Stack Developer (MERN)",
-    desc: "Website Learners, Chennai",
+    title: "Junior Full Stack Developer <span> Website Learners, Chennai </span>",
+    desc: `Built and shipped full-stack MERN applications from scratch — React frontends, Node.js/Express APIs, and MongoDB databases. Developed RESTful APIs with JWT authentication and role-based access control. Integrated LangChain for AI-powered content generation features. Deployed applications on cloud infrastructure and managed CI/CD pipelines.`,
   },
   {
     id: 2,
@@ -176,8 +176,7 @@ export const resume = [
     icon: <Briefcase />,
     year: "Jan 2023 - Sep 2023",
     title: "MERN Stack Trainee <span> Guvi, Chennai </span>",
-    desc: `Transitioning into IT with a focus on MERN Stack development, undergoing structured training through Guvi's
-program while actively pursuing self-learning and hands-on practice to strengthen my skills.`,
+    desc: `Transitioning into IT with a focus on MERN Stack development, undergoing structured training through Guvi's program while actively pursuing self-learning and hands-on practice to strengthen my skills.`,
   },
   {
     id: 3,
@@ -185,8 +184,7 @@ program while actively pursuing self-learning and hands-on practice to strengthe
     icon: <Briefcase />,
     year: "Jan 2017 - Dec 2022",
     title: "Technical Admin <span> Imdaad.LLC, U.A.E </span>",
-    desc: `I managed system updates in Maximo and SAP, and generated client-facing reports using MS Office tools.
-Recognized for excellence with 'Employee of the Year' award from the client on two occasions.`,
+    desc: `Managed system updates in Maximo and SAP, and generated client-facing reports using MS Office tools. Recognized for excellence with 'Employee of the Year' award from the client on two occasions.`,
   },
 
   {
@@ -258,7 +256,6 @@ export const skills = [
     title: "HTML & CSS",
     percentage: "90",
   },
-
   {
     id: 11,
     title: "TailWind",
@@ -291,11 +288,26 @@ export const skills = [
   },
   {
     id: 17,
+    title: "Python",
+    percentage: "70",
+  },
+  {
+    id: 18,
+    title: "FastAPI",
+    percentage: "65",
+  },
+  {
+    id: 19,
+    title: "LangChain",
+    percentage: "60",
+  },
+  {
+    id: 20,
     title: "AWS",
     percentage: "50",
   },
   {
-    id: 18,
+    id: 21,
     title: "NestJs",
     percentage: "50",
   },

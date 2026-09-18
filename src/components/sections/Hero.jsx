@@ -57,8 +57,8 @@ const Hero = () => {
 
             {/* Terminal-style taglines */}
             <div className="flex flex-col gap-1.5 font-mono text-sm sm:text-base text-muted-foreground">
-              <p><span className="text-foreground/40">{">"}</span> Building scalable MERN stack applications</p>
-              <p><span className="text-foreground/40">{">"}</span> Engineering clean, high-performance interfaces</p>
+              <p><span className="text-foreground/40">{">"}</span> Building full-stack apps with React, Node.js & MongoDB</p>
+              <p><span className="text-foreground/40">{">"}</span> Engineering AI agents with Python, FastAPI & LangChain</p>
               <p><span className="text-foreground/40">{">"}</span> Shipping features from design to production</p>
             </div>
 

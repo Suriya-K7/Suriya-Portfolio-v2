@@ -37,14 +37,17 @@ const PHASES = [
       { name: "ExpressJs", done: true },
       { name: "MongoDB", done: true },
       { name: "MySql", done: true },
+      { name: "Python", done: true },
+      { name: "FastAPI", done: true },
     ],
   },
   {
     num: "04",
-    title: "Tooling & Cloud",
+    title: "AI & Cloud",
     items: [
+      { name: "LangChain", done: true },
+      { name: "AI Agents", done: true },
       { name: "Git", done: true },
-      { name: "Tanstack", done: true },
       { name: "AWS", done: false },
       { name: "NestJs", done: false },
     ],
@@ -71,6 +74,14 @@ const ECOSYSTEM = [
       { name: "NestJs", children: [] },
       { name: "RESTful APIs", children: [] },
       { name: "JWT & Auth", children: [] },
+    ],
+  },
+  {
+    name: "Python",
+    color: "#3b82f6",
+    children: [
+      { name: "FastAPI", children: [{ name: "Microservices", children: [] }] },
+      { name: "LangChain", children: [{ name: "AI Agents", children: [] }] },
     ],
   },
   {
