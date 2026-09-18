@@ -1,38 +1,47 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import HomePage from "@/pages/HomePage";
-import ProjectsPage from "@/pages/ProjectsPage";
-import AboutPage from "@/pages/AboutPage";
 
 // Global premium features
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/Navbar";
+
+// Sections — single-page scroll order
+import Hero from "@/components/sections/Hero";
+import BioCard from "@/components/sections/BioCard";
+import ExperienceList from "@/components/sections/ExperienceList";
+import EducationList from "@/components/sections/EducationList";
+import FeaturedProjects from "@/components/sections/FeaturedProjects";
+import StackShowcase from "@/components/sections/StackShowcase";
+import Trajectory from "@/components/sections/Trajectory";
+import ContactSection from "@/components/sections/ContactSection";
+import Footer from "@/pages/footer/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
-      <SmoothScroll>
-        <TooltipProvider>
-          <CustomCursor />
-          <Toaster closeButton position="top-right" richColors />
-          <a href="#main-content" className="skip-to-content">
-            Skip to main content
-          </a>
-          <Navbar />
-          <main id="main-content">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/about" element={<AboutPage />} />
-            </Routes>
-          </main>
-        </TooltipProvider>
-      </SmoothScroll>
-    </BrowserRouter>
+    <SmoothScroll>
+      <TooltipProvider>
+        <CustomCursor />
+        <Toaster closeButton position="top-right" richColors />
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+        <Navbar />
+        <main id="main-content">
+          <Hero />
+          <BioCard />
+          <ExperienceList />
+          <EducationList />
+          <FeaturedProjects />
+          <StackShowcase />
+          <Trajectory />
+          <ContactSection />
+        </main>
+        <Footer />
+      </TooltipProvider>
+    </SmoothScroll>
   );
 }
 

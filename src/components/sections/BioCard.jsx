@@ -1,16 +1,59 @@
 import React, { useRef, useLayoutEffect } from "react";
-import { Download } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── Stat chip ── */
-const StatChip = ({ label }) => (
-  <span className="inline-flex items-center rounded-full border border-border bg-muted px-3.5 py-1 text-xs font-medium text-foreground/70">
-    {label}
-  </span>
-);
+/* ── Trajectory map sidebar ── */
+const MILESTONES = [
+  { num: "01", title: "Frontend", tags: "react · javascript · css", status: "done" },
+  { num: "02", title: "Full Stack", tags: "node.js · mongodb · apis", status: "done" },
+  { num: "03", title: "Architecture", tags: "typescript · design patterns", status: "now" },
+  { num: "04", title: "Cloud & DevOps", tags: "aws · ci/cd · deployment", status: "next" },
+  { num: "05", title: "Tech Lead", tags: "mentoring · system design", status: "next" },
+];
+
+const MilestoneItem = ({ num, title, tags, status }) => {
+  const isNow = status === "now";
+  const isDone = status === "done";
+  return (
+    <div className="flex items-start gap-3 relative">
+      {/* Timeline connector */}
+      {status !== "next" || num !== "05" ? (
+        <div className="absolute left-[0.9rem] top-8 bottom-0 w-px bg-border" aria-hidden="true" />
+      ) : null}
+
+      {/* Number badge */}
+      <span
+        className={`
+          flex h-7 w-7 shrink-0 items-center justify-center rounded-md
+          text-[10px] font-mono font-bold z-10
+          ${isNow
+            ? "bg-[var(--accent-orange)] text-white"
+            : "bg-muted text-muted-foreground border border-border"
+          }
+        `}
+      >
+        {num}
+      </span>
+
+      {/* Content */}
+      <div className="flex-1 pb-4">
+        <div className="flex items-center justify-between">
+          <p className={`text-sm font-mono font-semibold ${isNow ? "text-foreground" : isDone ? "text-foreground" : "text-muted-foreground"}`}>
+            {title}
+          </p>
+          <span className={`text-[9px] font-mono font-medium tracking-wider uppercase ${
+            isDone ? "text-muted-foreground/50" : isNow ? "text-[var(--accent-orange)]" : "text-muted-foreground/40"
+          }`}>
+            {status}
+          </span>
+        </div>
+        <p className="text-[11px] font-mono text-muted-foreground/60 mt-0.5">{tags}</p>
+      </div>
+    </div>
+  );
+};
 
 const BioCard = () => {
   const rootRef = useRef(null);
@@ -33,81 +76,74 @@ const BioCard = () => {
   }, []);
 
   return (
-    <section ref={rootRef} className="section-container section-pad pb-0">
-      <div className="rounded-2xl border border-border bg-card p-7 sm:p-10">
-        {/* Eyebrow */}
-        <p className="label-eyebrow mb-6">Who I Am</p>
+    <section ref={rootRef} id="readme" className="section-container py-20 sm:py-28">
+      {/* Section header */}
+      <div className="section-header">
+        <span><span className="section-number">§</span> 01 · README</span>
+        <span className="section-path">./README.md</span>
+      </div>
 
-        {/* Name heading */}
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground mb-8 leading-tight">
-          Hello! I'm{" "}
-          <span
-            className="relative inline-block"
-            style={{
-              textDecoration: "underline",
-              textDecorationColor: "hsl(var(--muted-foreground) / 0.35)",
-              textUnderlineOffset: "6px",
-              textDecorationThickness: "2px",
-            }}
-          >
-            Suriya Kesavamurthy.
-          </span>
-        </h1>
+      {/* Big monospace heading */}
+      <h2 className="heading-mono text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-foreground mb-10 leading-[1.15]">
+        Code first. Ship with<br />confidence.<span className="blink-cursor" aria-hidden="true" />
+      </h2>
 
-        {/* Bio paragraphs — full bio from the hero, split into 3 shorter paragraphs */}
-        <div className="prose-body space-y-4 max-w-3xl mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-14">
+        {/* ── Left: Bio ── */}
+        <div className="prose-body space-y-5 max-w-3xl">
           <p>
-            I'm a <strong className="text-foreground font-semibold">MERN Stack Developer</strong> with{" "}
-            2.7 years of hands-on experience building full-stack web applications using{" "}
-            <strong className="text-foreground font-semibold">React.js</strong>,{" "}
-            <strong className="text-foreground font-semibold">Node.js</strong>,{" "}
-            <strong className="text-foreground font-semibold">Next.js</strong>, and{" "}
-            <strong className="text-foreground font-semibold">MongoDB</strong>. I deliver clean,
-            scalable interfaces backed by reliable APIs — currently working as a Frontend Engineer
-            at <strong className="text-foreground font-semibold">Stratforge Pvt. Ltd.</strong> in Chennai.
+            I'm Suriya, based in Chennai. I'm a{" "}
+            <strong className="text-foreground font-semibold">MERN Stack Developer</strong> with{" "}
+            2.7+ years of hands-on experience building full-stack web applications using{" "}
+            <span style={{ color: "var(--accent-orange)" }}>React.js</span>,{" "}
+            <span style={{ color: "var(--accent-orange)" }}>Node.js</span>,{" "}
+            <span style={{ color: "var(--accent-orange)" }}>Next.js</span>, and{" "}
+            <span style={{ color: "var(--accent-orange)" }}>MongoDB</span>.
+          </p>
+          <p>
+            My approach is simple: build the thing, deploy it, iterate, and ship.
+            I deliver clean, scalable interfaces backed by reliable APIs — currently
+            working as a Frontend Engineer at{" "}
+            <strong className="text-foreground font-semibold">Stratforge Pvt. Ltd.</strong> in Chennai.
           </p>
           <p>
             My toolkit extends across{" "}
             <strong className="text-foreground font-semibold">TypeScript</strong>,{" "}
             <strong className="text-foreground font-semibold">Tailwind CSS</strong>,{" "}
             <strong className="text-foreground font-semibold">ShadCN UI</strong>, and{" "}
-            <strong className="text-foreground font-semibold">RESTful APIs</strong>. I'm comfortable
-            throughout the full stack — from composing responsive component systems to designing
-            Express + MongoDB backends, auth flows, and cloud-connected APIs.
+            <strong className="text-foreground font-semibold">RESTful APIs</strong>.
+            Before entering tech I spent 6+ years in a Non-IT professional role,
+            which sharpened my problem-solving instincts and appreciation for reliable,
+            maintainable systems.
           </p>
           <p>
-            Before entering tech I spent 6+ years in a{" "}
-            <strong className="text-foreground font-semibold">Non-IT</strong> professional role,
-            which sharpened my problem-solving instincts and appreciation for reliable, maintainable
-            systems. I work well in{" "}
-            <strong className="text-foreground font-semibold">Agile</strong> environments and have a
-            track record of shipping features from design to production with{" "}
-            <strong className="text-foreground font-semibold">CI/CD</strong> pipelines.
+            The direction I'm heading in is{" "}
+            <span style={{ color: "var(--accent-orange)" }}>
+              Full Stack Architecture, System Design, and Cloud Infrastructure
+            </span>
+            {" "}— the platforms that let software run reliably in production.
+            I'd rather ship five honest projects than talk about ten I never finished.
           </p>
         </div>
 
-        {/* Stat chips */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          <StatChip label="2.7+ yrs MERN" />
-          <StatChip label="6+ yrs Non-IT" />
-          <StatChip label="3+ Awards" />
-        </div>
+        {/* ── Right: Trajectory map sidebar ── */}
+        <div className="terminal-card">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-[10px] font-mono font-semibold tracking-widest uppercase text-muted-foreground">
+              TRAJECTORY.MAP
+            </span>
+            <span className="status-badge status-badge--active">
+              <span className="status-badge__dot" />
+              IN PROGRESS
+            </span>
+          </div>
 
-        {/* Download CV */}
-        <a
-          href="https://drive.google.com/file/d/1RbkzozwdsiAFiN6AWIyfhKuINtBAFA53/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            inline-flex h-11 items-center gap-2 rounded-xl
-            bg-foreground px-5 text-sm font-medium text-background
-            transition-all duration-200 hover:opacity-85
-            focus-visible:outline-2 focus-visible:outline-foreground/50 focus-visible:outline-offset-2
-          "
-        >
-          <Download className="h-4 w-4" aria-hidden="true" />
-          Download CV
-        </a>
+          <div className="flex flex-col">
+            {MILESTONES.map((m) => (
+              <MilestoneItem key={m.num} {...m} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
